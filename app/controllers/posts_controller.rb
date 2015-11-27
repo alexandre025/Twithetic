@@ -3,13 +3,15 @@ class PostsController < ApplicationController
 
   before_action :load_collection, only: [:index]
   before_action :load_resource, only: [:update,:delete,:show]
+  before_action :add_page_to_params, only: [:index,:user]
 
   def index
-    unless params.has_key? :page
-      params.merge(page: 1)
-    end
     @collection = Kaminari.paginate_array(@collection).page(params[:page]).per(10)
-    console
+  end
+
+  def user
+    @user = User.friendly.find(params[:id])
+    @collection = Kaminari.paginate_array(Post.where(user: @user)).page(params[:page]).per(10)
   end
 
   def new
@@ -17,6 +19,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    @object = Post.new(permitted_attributes)
     if @object.save
       flash.now[:notice] = 'new_post_success'
       render :index
@@ -27,11 +30,17 @@ class PostsController < ApplicationController
   end
 
   def update
+    if update_attribute(@object, permitted_attributes)
+      flash.now[:notice] = 'update_post_success'
+      redirect_to
+    else
 
+    end
   end
 
   def delete
     @object.delete
+    redirect_to user_path(current_user)
   end
 
   def show
@@ -39,6 +48,12 @@ class PostsController < ApplicationController
   end
 
   private
+    def add_page_to_params
+      unless params.has_key? :page
+        params.merge(page: 1)
+      end
+    end
+
     def load_resource
       @object = Post.params[:id]
     end
@@ -47,12 +62,12 @@ class PostsController < ApplicationController
       if params.has_key? :q
         @collection = Post.ransack(params[:q])
       else
-        @collection = Post.all
+        @collection = Post.all.order(created_at: :asc)
       end
     end
 
     def permitted_attributes
-      params[:post].permit(:user_id,:message) # TO-DO : Complete permitted attributes
+      params[:post].permit(:user_id,:message,:image_attributes)
     end
 
 end

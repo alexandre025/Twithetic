@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get '/login' => 'devise/sessions#new'
     delete '/logout' => 'devise/sessions#destroy'
   end
+  get 'users/:id' => 'posts#user', as: :user
 
   resources :posts
 
