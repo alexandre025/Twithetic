@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151127143808) do
+ActiveRecord::Schema.define(version: 20151127175345) do
 
   create_table "assets", force: :cascade do |t|
     t.integer  "viewable_id",             limit: 4
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20151127143808) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
+    t.string   "username",               limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
