@@ -35,9 +35,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Unicorn as the app server
-gem 'puma'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -48,8 +45,17 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'puma'
 end
 
+# Pretty slugs in url
 gem 'friendly_id'
+
+# Sessions manager
 gem 'devise'
+
+# Assets manager
 gem 'paperclip', '~> 4.3'
+
+# Pagination
+gem 'kaminari'
