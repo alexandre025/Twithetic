@@ -59,3 +59,9 @@ gem 'paperclip', '~> 4.3'
 
 # Pagination
 gem 'kaminari'
+
+# Search
+gem 'ransack'
+
+# Authorize
+gem 'cancancan', '~> 1.10'
