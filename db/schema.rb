@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 20151127175345) do
     t.string   "viewable_type",           limit: 255
     t.string   "type",                    limit: 255
     t.text     "alt",                     limit: 65535
+    t.integer  "attachment_width",        limit: 4
+    t.integer  "attachment_height",       limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "attachment_file_name",    limit: 255

@@ -67,7 +67,7 @@ class PostsController < ApplicationController
     end
 
     def permitted_attributes
-      params[:post].permit(:user_id,:message,:image_attributes)
+      params.require(:post).permit(:user_id, :message, image_attributes: [:attachment])
     end
 
 end

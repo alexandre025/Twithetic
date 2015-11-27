@@ -1,0 +1,13 @@
+<% if user_signed_in? %>
+    <% new_post = Post.new(image: Asset::PostImage.new) %>
+    <%= form_for new_post do |f| %>
+          <%= f.hidden_field :user_id, value: current_user.id%>
+          <%= f.text_field :message, required: true %>
+          <%= f.fields_for :image do |i| %>
+            <%= i.file_field :attachment %>
+          <% end %>
+          <%= f.submit t('posts.actions.create') %>
+    <% end %>
+<% end %>
+
+<%= console %>

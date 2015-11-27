@@ -1,4 +1,4 @@
-class Asset::User < Asset
+class Asset::UserImage < Asset
 
   has_attached_file :attachment,
                     styles: { thumb: '48x48>' },

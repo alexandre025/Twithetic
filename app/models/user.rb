@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
 
   has_many :posts
 
-  has_one :photo, class_name: 'Asset::User'
-  accepts_nested_attributes_for :photo
+  has_one :image, as: :viewable, class_name: 'Asset::UserImage', dependent: :destroy
+  accepts_nested_attributes_for :image
 
   extend FriendlyId
   friendly_id :username
