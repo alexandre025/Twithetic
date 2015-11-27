@@ -46,6 +46,11 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'puma'
+
+  # testing
+  gem 'rspec'
+  gem 'factory_girl'
+  gem 'faker'
 end
 
 # Pretty slugs in url
