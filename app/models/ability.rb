@@ -29,7 +29,10 @@ class Ability
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
 
-    can :manage, :post
+    user ||= User.new
+
+    can [:create,:read], :post
+    can [:update,:destroy], :post, user_id: user.id
 
     can [:create,:read,:update], :user
     cannot :destroy, :user

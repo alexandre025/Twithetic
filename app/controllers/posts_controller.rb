@@ -1,11 +1,15 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new,:update,]
+  before_action :authenticate_user!, only: [:new,:update,:create,:delete]
 
   before_action :load_collection, only: [:index]
   before_action :load_resource, only: [:update,:delete,:show]
 
   def index
-
+    unless params.has_key? :page
+      params.merge(page: 1)
+    end
+    @collection = Kaminari.paginate_array(@collection).page(params[:page]).per(10)
+    console
   end
 
   def new
