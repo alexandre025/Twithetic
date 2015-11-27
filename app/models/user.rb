@@ -10,6 +10,6 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :photo
 
   extend FriendlyId
-  friendly_id :username, use: :slugged
+  friendly_id :username
 
 end
