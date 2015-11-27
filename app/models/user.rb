@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness: true
 
+  has_many :posts
+
   has_one :photo, class_name: 'Asset::User'
   accepts_nested_attributes_for :photo
 
