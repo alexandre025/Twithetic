@@ -2,3 +2,6 @@ fr:
   posts:
     actions:
       create: Ajouter un post
+      delete: Supprimer le post
+      update: Mettre à jour le post
+    writted_by: "Par %{user}"
