@@ -15,6 +15,9 @@
 .idea
 .DS_Store
 public/
+vendor/
 
 # Ignore application configuration
 /config/application.yml
+
+.rvmrc
