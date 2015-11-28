@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: "posts#index"
+  root to: 'posts#index'
 
   # Default devise routing
   devise_for :users
@@ -11,6 +11,14 @@ Rails.application.routes.draw do
   end
   get 'users/:id' => 'posts#user', as: :user
 
-  resources :posts
+  resources :posts do
+    post 'like' => 'post#user'
+  end
+
+  # Routes for errors_controller
+  get '/404', :to => 'errors#not_found'
+  get '/422', :to => 'errors#unacceptable'
+  get '/500', :to => 'errors#internal_error'
+
 
 end

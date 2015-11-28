@@ -47,6 +47,10 @@ class PostsController < ApplicationController
 
   end
 
+  def like
+
+  end
+
   private
     def add_page_to_params
       unless params.has_key? :page
@@ -55,7 +59,7 @@ class PostsController < ApplicationController
     end
 
     def load_resource
-      @object = Post.params[:id]
+      @object = Post.find(params[:id])
     end
 
     def load_collection
