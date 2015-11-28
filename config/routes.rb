@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'users/:id' => 'posts#user', as: :user
 
   resources :posts do
-    post 'like' => 'post#user'
+    post 'like' => 'posts#like'
   end
 
   # Routes for errors_controller

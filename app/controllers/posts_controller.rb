@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new,:update,:create,:delete]
+  before_action :authenticate_user!, only: [:new,:update,:create,:delete,:like]
 
   before_action :load_collection, only: [:index]
   before_action :load_resource, only: [:update,:delete,:show]
@@ -48,7 +48,13 @@ class PostsController < ApplicationController
   end
 
   def like
-
+    post = Post.find(params[:post_id])
+    if current_user.following?(post)
+      current_user.stop_following(post)
+    else
+      current_user.follow(post)
+    end
+    render json: {}, status: 200
   end
 
   private

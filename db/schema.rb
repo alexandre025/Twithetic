@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151127175345) do
+ActiveRecord::Schema.define(version: 20151128172104) do
 
   create_table "assets", force: :cascade do |t|
     t.integer  "viewable_id",             limit: 4
@@ -27,6 +27,19 @@ ActiveRecord::Schema.define(version: 20151127175345) do
     t.integer  "attachment_file_size",    limit: 4
     t.datetime "attachment_updated_at"
   end
+
+  create_table "follows", force: :cascade do |t|
+    t.integer  "followable_id",   limit: 4,                   null: false
+    t.string   "followable_type", limit: 255,                 null: false
+    t.integer  "follower_id",     limit: 4,                   null: false
+    t.string   "follower_type",   limit: 255,                 null: false
+    t.boolean  "blocked",                     default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "follows", ["followable_id", "followable_type"], name: "fk_followables", using: :btree
+  add_index "follows", ["follower_id", "follower_type"], name: "fk_follows", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.text     "message",    limit: 65535

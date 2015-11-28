@@ -73,3 +73,6 @@ gem 'ransack'
 
 # Authorize
 gem 'cancancan', '~> 1.10'
+
+# Follow & likes
+gem 'acts_as_follower'
