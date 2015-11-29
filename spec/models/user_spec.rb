@@ -24,4 +24,19 @@ RSpec.describe User, :type => :model do
     expect(other_user.valid?).to eq(false)
   end
 
+  it 'can edit' do
+    user = User.create(email: Faker::Internet.email, password: Faker::Internet.password, username: Faker::Internet.user_name)
+    user.save!
+
+    user.password = Faker::Internet.password
+    expect(user.save).to eq(true)
+  end
+
+  it 'can be destroy' do
+    user = User.create(email: Faker::Internet.email, password: Faker::Internet.password, username: Faker::Internet.user_name)
+    user.save!
+
+    expect(user.destroy).to_not eq(false)
+  end
+
 end
