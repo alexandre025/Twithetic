@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
 
+  before_action :authenticate_user!
+
   before_action :load_resource, only: [:delete]
 
   def create
