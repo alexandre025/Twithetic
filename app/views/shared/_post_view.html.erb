@@ -6,9 +6,10 @@
     <% if user_signed_in? %>
         <div data-hook="post-like">
             <%= form_tag post_like_path(post_id: post.id), remote: true do %>
-                <%= submit_tag t('posts.actions.like') %>
-                <%= submit_tag t('posts.actions.unlike') %>
+                <%= submit_tag t('posts.actions.like'), class: ('liked' if current_user.following?(post)) %>
             <% end %>
         </div>
     <% end %>
+
+    <%= render partial: 'shared/retweet_action', locals: {post: post } %>
 </div>

@@ -1,0 +1,14 @@
+<% if user_signed_in? %>
+    <% if current_user == post.user %>
+        Can't RT your own post <%= post.count_retweet %>
+    <% elsif post.retweeted? %>
+        Already RT <%= post.count_retweet %>
+    <% else %>
+        <%= form_tag post_retweet_path(post_id: post.id), remote: true do %>
+            <%= submit_tag t('posts.actions.retweet') %>
+        <% end %>
+        <%= post.count_retweet %>
+    <% end %>
+<% else %>
+    Need to be logged to RT <%= post.count_retweet %>
+<% end %>

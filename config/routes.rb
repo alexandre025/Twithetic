@@ -7,12 +7,13 @@ Rails.application.routes.draw do
   # Custom routes for sign_in/sign_out
   devise_scope :user do
     get '/login' => 'devise/sessions#new'
-    delete '/logout' => 'devise/sessions#destroy'
+    get '/logout' => 'devise/sessions#destroy'
   end
   get 'users/:id' => 'posts#user', as: :user
 
   resources :posts do
     post 'like' => 'posts#like'
+    post 'retweet' => 'posts#retweet'
   end
 
   # Routes for errors_controller

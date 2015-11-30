@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new,:update,:create,:delete,:like]
+  before_action :authenticate_user!, only: [:new,:update,:create,:delete,:like,:retweet]
 
   before_action :load_collection, only: [:index]
   before_action :load_resource, only: [:update,:delete,:show]
@@ -45,6 +45,19 @@ class PostsController < ApplicationController
 
   def show
 
+  end
+
+  def retweet
+    post = Post.find(params[:post_id])
+    retweeted = post.clone
+    retweeted.parent = post
+    retweeted.user = current_user
+    if retweeted.save
+
+    else
+
+    end
+    render json: {}, status: 200
   end
 
   def like

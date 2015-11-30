@@ -110,6 +110,9 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
+    passenger (5.0.21)
+      rack
+      rake (>= 0.8.1)
     polyamorous (1.2.0)
       activerecord (>= 3.0)
     puma (2.15.3)
@@ -221,6 +224,7 @@ DEPENDENCIES
   kaminari
   mysql2 (>= 0.3.13, < 0.5)
   paperclip (~> 4.3)
+  passenger
   puma
   rails (= 4.2.5)
   ransack
