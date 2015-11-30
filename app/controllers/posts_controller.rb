@@ -49,7 +49,7 @@ class PostsController < ApplicationController
 
   def retweet
     post = Post.find(params[:post_id])
-    retweeted = post.clone
+    retweeted = post.dup
     retweeted.parent = post
     retweeted.user = current_user
     if retweeted.save

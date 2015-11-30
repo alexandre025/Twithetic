@@ -14,7 +14,7 @@ class Post <  ActiveRecord::Base
   end
 
   def retweeted?(user)
-    Post.where(parent: self, user: user) ? true : false
+    Post.where(parent: self, user: user).empty?
   end
 
 end
