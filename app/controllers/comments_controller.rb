@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
 
+  before_action :load_resource, only: [:delete]
+
   def create
     @object = Comment.new(permitted_attributes)
     @object.post_id = params[:post_id]
@@ -11,12 +13,10 @@ class CommentsController < ApplicationController
     redirect_to post_path(@object.post)
   end
 
-  def update
-
-  end
-
-  def delete
-
+  def destroy
+    @object.destroy
+    flash.now[:notice] = 'delete_comment_success'
+    redirect_to post_path(@object.post)
   end
 
   private

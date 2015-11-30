@@ -38,8 +38,9 @@ class PostsController < ApplicationController
     end
   end
 
-  def delete
-    @object.delete
+  def destroy
+    @object.destroy
+    flash.now[:notice] = 'delete_post_success'
     redirect_to user_path(current_user)
   end
 

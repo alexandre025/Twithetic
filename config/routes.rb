@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     post 'like' => 'posts#like'
     post 'retweet' => 'posts#retweet'
 
-    resources :comments
+    resources :comments, only: [:create,:destroy]
   end
 
   # Routes for errors_controller
