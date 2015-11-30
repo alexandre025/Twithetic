@@ -9,6 +9,8 @@ class Post <  ActiveRecord::Base
   has_one :image, as: :viewable, class_name: 'Asset::PostImage', dependent: :destroy
   accepts_nested_attributes_for :image
 
+  has_many :comments, dependent: :destroy
+
   def count_retweet
     Post.where(parent: self).size
   end

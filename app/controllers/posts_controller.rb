@@ -50,12 +50,12 @@ class PostsController < ApplicationController
   def retweet
     post = Post.find(params[:post_id])
     retweeted = post.dup
-    retweeted.parent = post
+    retweeted.parent = post.parent ? post.parent : post
     retweeted.user = current_user
     if retweeted.save
-
+      # TO-DO : Success
     else
-
+      # TO-DO : Fail
     end
     render json: {}, status: 200
   end
