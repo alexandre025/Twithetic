@@ -47,8 +47,7 @@ RSpec.describe Post, :type => :model do
 
     it 'can\'t retweet is own tweet' do
       post = create(:post)
-      # TODO: raise_exception not working, fix it
-      # expect(post.retweet(post.user)).to raise_exception
+      expect { post.retweet(post.user) }.to raise_exception
     end
   end
 
