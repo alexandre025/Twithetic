@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new,:update,:create,:delete]
+  before_action :authenticate_user!, only: [:new,:update,:create,:delete,:like,:retweet]
 
   before_action :load_collection, only: [:index]
   before_action :load_resource, only: [:update,:delete,:show]
@@ -38,8 +38,9 @@ class PostsController < ApplicationController
     end
   end
 
-  def delete
-    @object.delete
+  def destroy
+    @object.destroy
+    flash.now[:notice] = 'delete_post_success'
     redirect_to user_path(current_user)
   end
 
@@ -47,8 +48,27 @@ class PostsController < ApplicationController
 
   end
 
-  def like
+  def retweet
+    post = Post.find(params[:post_id])
+    retweeted = post.dup
+    retweeted.parent = post.parent ? post.parent : post
+    retweeted.user = current_user
+    if retweeted.save
+      # TO-DO : Success
+    else
+      # TO-DO : Fail
+    end
+    render json: {}, status: 200
+  end
 
+  def like
+    post = Post.find(params[:post_id])
+    if current_user.following?(post)
+      current_user.stop_following(post)
+    else
+      current_user.follow(post)
+    end
+    render json: {}, status: 200
   end
 
   private

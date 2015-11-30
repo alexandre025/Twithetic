@@ -8,6 +8,11 @@ class User < ActiveRecord::Base
 
   has_many :posts
 
+  has_many :comments
+
+  acts_as_followable
+  acts_as_follower
+
   has_one :image, as: :viewable, class_name: 'Asset::UserImage', dependent: :destroy
   accepts_nested_attributes_for :image
 

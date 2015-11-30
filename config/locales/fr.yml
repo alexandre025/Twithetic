@@ -2,3 +2,9 @@ fr:
   posts:
     actions:
       create: Ajouter un post
+      delete: Supprimer le post
+      update: Mettre à jour le post
+      retweet: RT
+      like: "J'aime"
+      unlike: "Je n'aime plus"
+    writted_by: "Par %{user}"
