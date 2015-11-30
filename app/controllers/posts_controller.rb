@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new,:update,:create,:delete,:like,:retweet]
+  before_action :authenticate_user!, only: [:new, :update, :create, :delete, :like, :retweet]
 
   before_action :load_collection, only: [:index]
-  before_action :load_resource, only: [:update,:delete,:show]
-  before_action :add_page_to_params, only: [:index,:user]
+  before_action :load_resource, only: [:update, :delete, :show]
+  before_action :add_page_to_params, only: [:index, :user]
 
   def index
     @collection = Kaminari.paginate_array(@collection).page(params[:page]).per(10)
@@ -50,16 +50,15 @@ class PostsController < ApplicationController
 
   def retweet
     post = Post.find(params[:post_id])
-    retweeted = post.dup
-    retweeted.parent = post.parent ? post.parent : post
-    retweeted.user = current_user
-    if retweeted.save
-      # TO-DO : Success
-    else
-      # TO-DO : Fail
+    begin
+      retweeted = post.retweet(current_user)
+      retweeted.save!
+      render json: {}, status: 200
+    rescue
+      # TODO: Handling Exception if user try to retweet is own tweet
     end
-    render json: {}, status: 200
   end
+
 
   def like
     post = Post.find(params[:post_id])
@@ -72,26 +71,26 @@ class PostsController < ApplicationController
   end
 
   private
-    def add_page_to_params
-      unless params.has_key? :page
-        params.merge(page: 1)
-      end
+  def add_page_to_params
+    unless params.has_key? :page
+      params.merge(page: 1)
     end
+  end
 
-    def load_resource
-      @object = Post.find(params[:id])
-    end
+  def load_resource
+    @object = Post.find(params[:id])
+  end
 
-    def load_collection
-      if params.has_key? :q
-        @collection = Post.ransack(params[:q])
-      else
-        @collection = Post.all.order(created_at: :asc)
-      end
+  def load_collection
+    if params.has_key? :q
+      @collection = Post.ransack(params[:q])
+    else
+      @collection = Post.all.order(created_at: :asc)
     end
+  end
 
-    def permitted_attributes
-      params.require(:post).permit(:user_id, :message, image_attributes: [:attachment])
-    end
+  def permitted_attributes
+    params.require(:post).permit(:user_id, :message, image_attributes: [:attachment])
+  end
 
 end

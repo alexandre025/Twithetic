@@ -11,6 +11,14 @@ class Post <  ActiveRecord::Base
 
   has_many :comments, dependent: :destroy
 
+  def retweet(by_user)
+    raise Exception if by_user.id == self.user.id
+    retweet = self.dup
+    retweet.parent = self.parent ? self.parent : self
+    retweet.user = by_user
+    return retweet
+  end
+
   def count_retweet
     Post.where(parent: self).size
   end

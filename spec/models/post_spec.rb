@@ -30,4 +30,26 @@ RSpec.describe Post, :type => :model do
     expect(post.message).to eq(sentence)
   end
 
+  describe 'retweet' do
+    it 'is not retweeted' do
+      post = create(:post)
+      expect(post.retweeted?(post.user)).to eq(true)
+    end
+
+    it 'can retweet a user tweet' do
+      post = create(:post)
+      user = create(:user)
+      retweet = post.retweet(user)
+
+      expect(retweet.message).to eq(post.message)
+      expect(retweet.user.id).to eq(user.id)
+    end
+
+    it 'can\'t retweet is own tweet' do
+      post = create(:post)
+      # TODO: raise_exception not working, fix it
+      # expect(post.retweet(post.user)).to raise_exception
+    end
+  end
+
 end
