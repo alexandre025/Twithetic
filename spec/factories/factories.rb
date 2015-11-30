@@ -6,4 +6,9 @@ FactoryGirl.define do
     password Faker::Internet.password(10)
   end
 
+  factory :post do
+    message { Faker::Lorem.sentence }
+    user
+  end
+
 end
