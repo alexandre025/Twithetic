@@ -51,6 +51,5 @@ test:
 #
 production:
   <<: *default
-  database: twithetic_production
-  username: twithetic
-  password: <%= ENV['TWITHETIC_DATABASE_PASSWORD'] %>
+  database: twithetic
+  socket: <%= ENV["DB_SOCKET"] %>

@@ -1,0 +1,5 @@
+<%= @object.message %>
+
+<% @object.comments.each do |c| %>
+  <%= c.user.username %> : <%= c.message %>
+<% end %>
