@@ -71,26 +71,23 @@ class PostsController < ApplicationController
   end
 
   private
-  def add_page_to_params
-    unless params.has_key? :page
-      params.merge(page: 1)
+    def add_page_to_params
+      unless params.has_key? :page
+        params.merge(page: 1)
+      end
     end
-  end
 
-  def load_resource
-    @object = Post.find(params[:id])
-  end
-
-  def load_collection
-    if params.has_key? :q
-      @collection = Post.ransack(params[:q])
-    else
-      @collection = Post.all.order(created_at: :asc)
+    def load_resource
+      @object = Post.find(params[:id])
     end
-  end
 
-  def permitted_attributes
-    params.require(:post).permit(:user_id, :message, image_attributes: [:attachment])
-  end
+    def load_collection
+        # TO-DO : Posted by followed users
+        @collection = Post.all.order(created_at: :asc)
+    end
+
+    def permitted_attributes
+      params.require(:post).permit(:user_id, :message, image_attributes: [:attachment])
+    end
 
 end
