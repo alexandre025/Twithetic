@@ -1,8 +1,8 @@
 # Twithetic
 
-== About
+## About
 
-== How to instal
+## How to instal
 
 First, clone the project
 ````
@@ -18,12 +18,12 @@ rake db:create
 rake db:schema:load
 ````
 
-== Run the server in production mode
+## Run the server in production mode
 
 Never forget to precompile the assets :
-''''
+```
 rake assets:precompile
-''''
+````
 
 We use passenger in production mode, you can redefined it in the Gemfile.
 Please refer to passenger documentation for more informations.
