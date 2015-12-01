@@ -83,11 +83,8 @@ class PostsController < ApplicationController
     end
 
     def load_collection
-      if params.has_key? :q
-        @collection = Post.ransack(params[:q])
-      else
+        # TO-DO : Posted by followed users
         @collection = Post.all.order(created_at: :asc)
-      end
     end
 
     def permitted_attributes

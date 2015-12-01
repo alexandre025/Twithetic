@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     resources :comments, only: [:create,:destroy]
   end
 
+  post 'search' => 'search#search_results'
+
   # Routes for errors_controller
   get '/404', :to => 'errors#not_found'
   get '/422', :to => 'errors#unacceptable'

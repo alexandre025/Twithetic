@@ -8,3 +8,6 @@ fr:
       like: "J'aime"
       unlike: "Je n'aime plus"
     writted_by: "Par %{user}"
+  search:
+    actions:
+      search: Rechercher
