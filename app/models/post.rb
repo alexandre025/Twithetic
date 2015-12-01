@@ -1,4 +1,4 @@
-class Post <  ActiveRecord::Base
+class Post < ActiveRecord::Base
 
   belongs_to :user
 
@@ -25,6 +25,10 @@ class Post <  ActiveRecord::Base
 
   def retweeted?(user)
     Post.where(parent: self, user: user).empty?
+  end
+
+  def is_a_retweet?
+    self.parent.present?
   end
 
 end

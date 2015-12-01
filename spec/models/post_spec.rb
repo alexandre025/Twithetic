@@ -43,6 +43,7 @@ RSpec.describe Post, :type => :model do
 
       expect(retweet.message).to eq(post.message)
       expect(retweet.user.id).to eq(user.id)
+      expect(retweet.is_a_retweet?).to eq(true)
     end
 
     it 'can\'t retweet is own tweet' do
