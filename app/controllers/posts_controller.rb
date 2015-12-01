@@ -9,11 +9,6 @@ class PostsController < ApplicationController
     @collection = Kaminari.paginate_array(@collection).page(params[:page]).per(10)
   end
 
-  def user
-    @user = User.friendly.find(params[:id])
-    @collection = Kaminari.paginate_array(Post.where(user: @user)).page(params[:page]).per(10)
-  end
-
   def new
     @object = Post.new(user: current_user)
   end
@@ -71,11 +66,6 @@ class PostsController < ApplicationController
   end
 
   private
-    def add_page_to_params
-      unless params.has_key? :page
-        params.merge(page: 1)
-      end
-    end
 
     def load_resource
       @object = Post.find(params[:id])

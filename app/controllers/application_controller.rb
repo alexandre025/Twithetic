@@ -9,4 +9,10 @@ class ApplicationController < ActionController::Base
     def configure_permitted_parameters
       devise_parameter_sanitizer.for(:sign_up) << :username
     end
+
+    def add_page_to_params
+      unless params.has_key? :page
+        params.merge(page: 1)
+      end
+    end
 end

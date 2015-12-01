@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     get '/login' => 'devise/sessions#new'
     get '/logout' => 'devise/sessions#destroy'
   end
-  get 'users/:id' => 'posts#user', as: :user
 
   resources :posts do
     post 'like' => 'posts#like'
@@ -19,6 +18,10 @@ Rails.application.routes.draw do
   end
 
   post 'search' => 'search#search_results'
+
+  resources :users, only: [:show] do
+    post 'follow' => 'users#follow'
+  end
 
   # Routes for errors_controller
   get '/404', :to => 'errors#not_found'
