@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 20151201160019) do
     t.datetime "updated_at"
   end
 
+  add_index "hashtags", ["name"], name: "index_hashtags_on_name", unique: true, using: :btree
+
   create_table "posts", force: :cascade do |t|
     t.text     "message",    limit: 65535, null: false
     t.integer  "user_id",    limit: 4,     null: false

@@ -5,5 +5,6 @@ class CreateHashtagTable < ActiveRecord::Migration
       t.integer :count, null: false
       t.timestamps
     end
+    add_index :hashtags, :name, unique: true
   end
 end
