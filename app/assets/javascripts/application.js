@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require /lib
+//= require_tree ./lib
 //= require_tree .
 
 Turbolinks.enableProgressBar();
