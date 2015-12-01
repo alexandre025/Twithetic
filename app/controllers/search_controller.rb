@@ -1,6 +1,7 @@
 class SearchController < ApplicationController
 
   before_action :load_resources, only: [:search_results]
+  before_action :add_page_to_params, only: [:hashtag]
 
   def search_results
     console
@@ -8,6 +9,7 @@ class SearchController < ApplicationController
 
   def hashtag
     @posts = Post.ransack(message_cont: params[:hashtag]).result
+    @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(10)
   end
 
   private
