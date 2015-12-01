@@ -13,4 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require /lib
 //= require_tree .
+
+Turbolinks.enableProgressBar();
+
+$(document).on('ready page:load',function(e){
+   console.log('reloaded');
+});

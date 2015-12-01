@@ -39,6 +39,10 @@ gem 'figaro'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+group :production do
+  gem 'passenger'
+end
+
 group :development, :test do
   gem 'byebug'
 end
@@ -71,3 +75,6 @@ gem 'ransack'
 
 # Authorize
 gem 'cancancan', '~> 1.10'
+
+# Follow & likes
+gem 'acts_as_follower'
