@@ -39,4 +39,14 @@ RSpec.describe User, :type => :model do
     expect(user.destroy).to_not eq(false)
   end
 
+  it 'can like and unlike a tweet' do
+    user = create(:user)
+    post = create(:post)
+    user.follow(post)
+
+    expect(user.following?(post)).to eq(true)
+    user.stop_following(post)
+    expect(user.following?(post)).to eq(false)
+  end
+
 end
