@@ -21,3 +21,5 @@ vendor/
 /config/application.yml
 
 .rvmrc
+
+Passengerfile.json
