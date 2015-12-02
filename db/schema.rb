@@ -50,8 +50,8 @@ ActiveRecord::Schema.define(version: 20151201160019) do
   add_index "follows", ["follower_id", "follower_type"], name: "fk_follows", using: :btree
 
   create_table "hashtags", force: :cascade do |t|
-    t.string   "name",       limit: 255, null: false
-    t.integer  "count",      limit: 4,   null: false
+    t.string   "name",       limit: 255,             null: false
+    t.integer  "count",      limit: 4,   default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

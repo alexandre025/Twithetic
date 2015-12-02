@@ -33,10 +33,12 @@ class Post < ActiveRecord::Base
     hashtags = self.message.scan(/(#\w+)/).flatten
     hashtags.each do |hashtag|
       tag = hashtag.tr('#', '')
-      if Hashtag.where(name: tag).first.present? 
-		
+      stored_hashtag = Hashtag.where(name: tag).first
+      if stored_hashtag.present?
+        stored_hashtag.count++
+        stored_hashtag.save
       else
-
+        Hashtag.create(name: tag)
       end
     end
   end
