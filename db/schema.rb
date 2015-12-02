@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151130134846) do
+ActiveRecord::Schema.define(version: 20151201160019) do
 
   create_table "assets", force: :cascade do |t|
     t.integer  "viewable_id",             limit: 4
@@ -48,6 +48,15 @@ ActiveRecord::Schema.define(version: 20151130134846) do
 
   add_index "follows", ["followable_id", "followable_type"], name: "fk_followables", using: :btree
   add_index "follows", ["follower_id", "follower_type"], name: "fk_follows", using: :btree
+
+  create_table "hashtags", force: :cascade do |t|
+    t.string   "name",       limit: 255,             null: false
+    t.integer  "mention",    limit: 4,   default: 1, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "hashtags", ["name"], name: "index_hashtags_on_name", unique: true, using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.text     "message",    limit: 65535, null: false
