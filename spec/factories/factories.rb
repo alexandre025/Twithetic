@@ -9,6 +9,11 @@ FactoryGirl.define do
   factory :post do
     message { Faker::Lorem.sentence }
     user
+    factory :post_with_hashtags do
+      message 'tweet with some hashtags #love #ruby'
+    end
   end
+
+
 
 end
