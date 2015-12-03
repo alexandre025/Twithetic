@@ -1,4 +1,3 @@
 <%= form_tag search_path do %>
-    <%= text_field_tag :q %>
-    <%= submit_tag t('search.actions.search') %>
+    <%= text_field_tag :q, nil, placeholder: t('search.placeholder') %>
 <% end %>

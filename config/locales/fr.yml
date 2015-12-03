@@ -9,5 +9,6 @@ fr:
       unlike: "Je n'aime plus"
     writted_by: "Par %{user}"
   search:
+    placeholder: Rechercher un tweet ou un utilisateur
     actions:
       search: Rechercher
