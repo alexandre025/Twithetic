@@ -2,12 +2,13 @@ require 'rails_helper'
 
 RSpec.describe Follow, :type => :model do
 
-  it 'user can follow another user' do
+  it 'user can follow and be followed be user' do
+    user = create(:user)
+    other_user = create(:user)
+    user.follow(other_user)
 
-  end
-
-  it 'user can be followed by another user' do
-
+    expect(user.following?(other_user)).to eq(true)
+    expect(other_user.followed_by?(user)).to eq(true)
   end
 
 end
