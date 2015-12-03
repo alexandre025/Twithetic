@@ -1,4 +1,4 @@
-header{
+header {
   position: fixed;
   top: 0;
   left: 0;
@@ -7,8 +7,8 @@ header{
   min-width: 1020px;
   background-color: $header;
 
-  a{
-    &.title{
+  a {
+    &.title {
       display: inline-block;
       height: 100%;
       width: 150px;
@@ -22,28 +22,33 @@ header{
     }
   }
 
-  nav{
+  nav {
     position: absolute;
     height: 60px;
     line-height: 60px;
-    right:0;
+    right: 0;
     top: 0;
     display: inline-block;
     padding-right: 45px;
 
-    a{
+    a {
       color: $white;
       text-decoration: none;
 
-      &.open-popup{
+      &.open-popup {
 
       }
     }
-    .popup{
-      img{
+    .popup {
+      img {
         border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        position: relative;
+        top: 12px;
+        left: -10px;
       }
-      .popup-content{
+      .popup-content {
         position: absolute;
         width: 150px;
         border-radius: 10px;
@@ -51,33 +56,33 @@ header{
         right: 10px;
         display: none;
         background-color: $barre_ecriretweet_colorationzonecommentaire;
-        a{
+        a {
           color: $black;
           height: 35px;
           line-height: 35px;
           display: block;
           text-align: center;
-          &:last-child{
+          &:last-child {
             border-top: 1px solid $grey-light;
           }
         }
       }
-      &:hover{
-        .popup-content{
+      &:hover {
+        .popup-content {
           display: block;
         }
       }
     }
   }
 
-  form{
+  form {
     position: relative;
     display: inline-block;
     width: 590px;
     height: 35px;
     line-height: 60px;
 
-    svg{
+    svg {
       position: absolute;
       left: 15px;
       top: 22px;
@@ -86,18 +91,18 @@ header{
       fill: $white;
     }
 
-    ::-webkit-input-placeholder{
+    ::-webkit-input-placeholder {
       color: $white;
     }
-    ::-moz-input-placeholder{
+    ::-moz-input-placeholder {
       color: $white;
     }
-    ::-ms-input-placeholder{
+    ::-ms-input-placeholder {
       color: $white;
     }
 
-    input{
-      &[type=text]{
+    input {
+      &[type=text] {
         background-color: $header_search;
         color: $white;
         width: 100%;

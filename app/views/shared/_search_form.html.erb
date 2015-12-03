@@ -1,4 +1,4 @@
 <%= form_tag search_path do %>
-    <%= text_field_tag :q, nil, placeholder: t('search.placeholder') %>
+    <%= text_field_tag :q, nil, placeholder: t('search.placeholder'), autocomplete: :off %>
     <%= inline_svg 'search.svg' %>
 <% end %>
