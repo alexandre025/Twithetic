@@ -78,3 +78,6 @@ gem 'cancancan', '~> 1.10'
 
 # Follow & likes
 gem 'acts_as_follower'
+
+# SVG
+gem 'inline_svg'

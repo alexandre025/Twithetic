@@ -4,7 +4,7 @@ header{
   left: 0;
   height: 60px;
   width: 100%;
-  min-width: 1360px;
+  min-width: 1020px;
   background-color: $header;
 
   a{
@@ -22,7 +22,69 @@ header{
     }
   }
 
+  nav{
+    position: absolute;
+    height: 60px;
+    line-height: 60px;
+    right:0;
+    top: 0;
+    display: inline-block;
+    padding-right: 45px;
+
+    a{
+      color: $white;
+      text-decoration: none;
+
+      &.open-popup{
+
+      }
+    }
+    .popup{
+      img{
+        border-radius: 50%;
+      }
+      .popup-content{
+        position: absolute;
+        width: 150px;
+        border-radius: 10px;
+        top: 50px;
+        right: 10px;
+        display: none;
+        background-color: $barre_ecriretweet_colorationzonecommentaire;
+        a{
+          color: $black;
+          height: 35px;
+          line-height: 35px;
+          display: block;
+          text-align: center;
+          &:last-child{
+            border-top: 1px solid $grey-light;
+          }
+        }
+      }
+      &:hover{
+        .popup-content{
+          display: block;
+        }
+      }
+    }
+  }
+
   form{
+    position: relative;
+    display: inline-block;
+    width: 590px;
+    height: 35px;
+    line-height: 60px;
+
+    svg{
+      position: absolute;
+      left: 15px;
+      top: 22px;
+      height: 15px;
+      width: 15px;
+      fill: $white;
+    }
 
     ::-webkit-input-placeholder{
       color: $white;
@@ -34,11 +96,6 @@ header{
       color: $white;
     }
 
-    display: inline-block;
-    width: 590px;
-    height: 35px;
-    line-height: 60px;
-
     input{
       &[type=text]{
         background-color: $header_search;
@@ -47,7 +104,7 @@ header{
         height: 100%;
         border: none;
         outline: none;
-        border-radius: 20px;
+        border-radius: 10px;
         font-size: 14px;
         padding-left: 40px;
       }

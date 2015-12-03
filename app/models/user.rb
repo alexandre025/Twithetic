@@ -16,6 +16,9 @@ class User < ActiveRecord::Base
   has_one :image, as: :viewable, class_name: 'Asset::UserImage', dependent: :destroy
   accepts_nested_attributes_for :image
 
+  has_one :banner, as: :viewable, class_name: 'Asset::UserBanner', dependent: :destroy
+  accepts_nested_attributes_for :banner
+
   extend FriendlyId
   friendly_id :username
 

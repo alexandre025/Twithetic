@@ -8,6 +8,12 @@ fr:
       like: "J'aime"
       unlike: "Je n'aime plus"
     writted_by: "Par %{user}"
+  header:
+    login: Connexion
+    sign_in: Inscription
+    profil: Voir mon profil
+    logout: Se déconnecter
+    edit: Editer mon profil
   search:
     placeholder: Rechercher un tweet ou un utilisateur
     actions:

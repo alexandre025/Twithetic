@@ -1,4 +1,19 @@
 <header>
-    <%= link_to 'bark', posts_path, class: 'title' %>
-    <%= render partial: 'shared/search_form' %>
- </header>
+  <%= link_to 'bark', posts_path, class: 'title' %>
+
+  <%= render partial: 'shared/search_form' %>
+
+  <nav>
+    <% if user_signed_in? %>
+        <div class="popup">
+          <%= link_to t('header.profil'), user_path(current_user), class: 'open-popup' %>
+          <div class="popup-content">
+            <%= link_to t('header.edit'), '#' %>
+            <%= link_to t('header.logout'), logout_path %>
+          </div>
+        </div>
+    <% else %>
+        <%= link_to t('header.login')+' | '+t('header.sign_in'), login_path %>
+    <% end %>
+  </nav>
+</header>
