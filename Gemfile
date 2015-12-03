@@ -56,6 +56,12 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'puma'
+
+  # deploy
+  gem 'capistrano', '~> 3.4.0'
+  gem 'capistrano-passenger'
+  gem 'capistrano-rbenv', '~> 2.0'
+  gem 'capistrano-bundler', '~> 1.1.2'
 end
 
 # Pretty slugs in url
