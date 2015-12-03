@@ -1,5 +1,7 @@
 # Twithetic
 
+[![Build Status](https://travis-ci.com/alexandre025/Twithetic.svg?token=ZjFQNPV9JWmqpBcvXRTc&branch=master)](https://travis-ci.com/alexandre025/Twithetic)
+
 ## About
 
 ## How to instal
