@@ -1,7 +1,7 @@
 class Asset::UserImage < Asset
 
   has_attached_file :attachment,
-                    styles: { thumb: '35x35#' },
+                    styles: { thumb: '35x35#', bigger_thumb: '50x50#' },
                     default_style: :thumb,
                     default_url: '/default/users/image/:style/noimage.png',
                     url: '/twithetic/users/:id/image/:style/:basename.:extension',
