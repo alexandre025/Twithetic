@@ -3,9 +3,11 @@
 
     <%= image_tag @object.image.attachment.url(:regular), class: 'user-image' %>
 
+    <%= content_tag 'span', "#{@object.firstname} #{@object.lastname}", class: 'user-firstname-lastname' %>
+
     <%= content_tag 'span', "@#{@object.username}", class: 'user-username' %>
 
-    <%= content_tag 'span' %>
+    <%= content_tag 'span', @object.bio, class: 'user-bio' %>
 
     <% if current_user and current_user == @object %>
         <a href="#" class="default-btn edit"><%= inline_svg 'edit_compte.svg' %><%= t('users.actions.edit') %></a>
@@ -33,8 +35,6 @@
     </div>
   </div>
 </div>
-
-<%= @object.email %>
 
 <div class="infinite-scroll">
   <% @collection.each do |p| %>
