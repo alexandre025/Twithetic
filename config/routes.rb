@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get 'hashtag/:hashtag' => 'search#hashtag', as: :hashtag
 
   resources :users, only: [:show] do
-    post 'follow' => 'users#follow'
+    get 'follow' => 'users#follow'
   end
 
   # Routes for errors_controller

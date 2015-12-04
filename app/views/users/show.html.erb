@@ -10,11 +10,11 @@
     <% if current_user and current_user == @object %>
         <a href="#" class="default-btn edit"><%= inline_svg 'edit_compte.svg' %><%= t('users.actions.edit') %></a>
     <% elsif current_user.following?(@object) %>
-        <%= link_to t('users.actions.unfollow'), user_follow_path(@object), class: 'active unfollow default-btn' %>
-        <%= link_to t('users.actions.follow'), user_follow_path(@object), class: 'follow default-btn' %>
+        <%= link_to t('users.actions.unfollow'), user_follow_path(@object.id), class: 'active unfollow default-btn' %>
+        <%= link_to t('users.actions.follow'), user_follow_path(@object.id), class: 'follow default-btn' %>
         <% else %>
-        <%= link_to t('users.actions.unfollow'), user_follow_path(@object), class: 'unfollow default-btn' %>
-        <%= link_to t('users.actions.follow'), user_follow_path(@object), class: 'active follow default-btn' %>
+        <%= link_to t('users.actions.unfollow'), user_follow_path(@object.id), class: 'unfollow default-btn' %>
+        <%= link_to t('users.actions.follow'), user_follow_path(@object.id), class: 'active follow default-btn' %>
     <% end %>
 
     <div class="bottom">
