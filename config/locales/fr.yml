@@ -28,6 +28,7 @@ fr:
   trend_hashtags: "Trend Hastags"
   users:
     login: Connexion
+    register: Inscription
   user:
     liked: "Favoris"
     followers_count: "Abonnés"
