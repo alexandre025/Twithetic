@@ -16,5 +16,7 @@ fr:
     edit: Editer mon profil
   search:
     placeholder: Rechercher un tweet ou un utilisateur
+    tweets: Voir les tweets
+    users: Voir les utilisateurs
     actions:
       search: Rechercher
