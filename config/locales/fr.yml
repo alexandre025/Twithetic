@@ -20,13 +20,12 @@ fr:
     users: Voir les utilisateurs
     actions:
       search: Rechercher
-<<<<<<< 12e3a0a1ee65f8d056069e0a4a2ecf8fa901f29f
     results: "%{count} résultats pour \"%{for}\""
     no_results:
       users: Aucun utilisateur ne correspond à votre recherche.
       tweets: Aucun tweet ne correspond à votre recherche.
   trend_hashtags: "Trend Hastags"
-=======
   users:
     login: Connexion
->>>>>>> integration login 50%
+  users:
+    login: Connexion
