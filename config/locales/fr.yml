@@ -29,6 +29,10 @@ fr:
   users:
     login: Connexion
     register: Inscription
+    actions:
+      edit: "Editer le profil"
+      follow: "S'abonner"
+      unfollow: "Se désabonner"
   user:
     liked: "Favoris"
     followers_count: "Abonnés"

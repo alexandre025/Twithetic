@@ -1,12 +1,34 @@
-<div class="user-cover" style="background-image: url('<%= @object.banner.attachment.url() %>')">
+<div class="user-cover" style="background-image: url('<%= @object.banner.attachment.url() %>') center center no-repeat cover">
   <div class="container">
+
+    <%= image_tag @object.image.attachment.url(:regular), class: 'user-image' %>
+
+    <%= content_tag 'span', "@#{@object.username}", class: 'user-username' %>
+
+    <%= content_tag 'span' %>
+
+    <% if current_user and current_user == @object %>
+        <a href="#" class="default-btn edit"><%= inline_svg 'edit_compte.svg' %><%= t('users.actions.edit') %></a>
+    <% elsif current_user.following?(@object) %>
+        <%= link_to t('users.actions.unfollow'), user_follow_path(@object), class: 'active unfollow default-btn' %>
+        <%= link_to t('users.actions.follow'), user_follow_path(@object), class: 'follow default-btn' %>
+        <% else %>
+        <%= link_to t('users.actions.unfollow'), user_follow_path(@object), class: 'unfollow default-btn' %>
+        <%= link_to t('users.actions.follow'), user_follow_path(@object), class: 'active follow default-btn' %>
+    <% end %>
 
     <div class="bottom">
       <ul>
         <li><span class="number"><%= @object.posts.count %></span><span class="label"><%= t('user.posts') %></span></li>
-        <li><span class="number"><%= @object.following_users_count %></span><span class="label"><%= t('user.follow_count') %></span></li>
-        <li><span class="number"><%= @object.followers_count %></span><span class="label"><%= t('user.followers_count') %></span></li>
-        <li><span class="number"><%= @object.following_posts_count %></span><span class="label"><%= t('user.liked') %></span></li>
+        <li>
+          <span class="number"><%= @object.following_users_count %></span><span class="label"><%= t('user.follow_count') %></span>
+        </li>
+        <li>
+          <span class="number"><%= @object.followers_count %></span><span class="label"><%= t('user.followers_count') %></span>
+        </li>
+        <li>
+          <span class="number"><%= @object.following_posts_count %></span><span class="label"><%= t('user.liked') %></span>
+        </li>
       </ul>
     </div>
   </div>
@@ -15,8 +37,8 @@
 <%= @object.email %>
 
 <div class="infinite-scroll">
-<% @collection.each do |p| %>
-    <%= render partial: 'shared/post_view', locals: { post: p }%>
+  <% @collection.each do |p| %>
+      <%= render partial: 'shared/post_view', locals: {post: p} %>
       <%= link_to_next_page @collection, 'Next page', class: 'infinite-scroll infinite-scroll-item', params: params unless @collection.last_page? %>
-<% end %>
+  <% end %>
 </div>

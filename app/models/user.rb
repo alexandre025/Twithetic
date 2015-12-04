@@ -22,4 +22,9 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :username
 
+  after_initialize do
+    self.image = Asset::UserImage.new unless self.image
+    self.banner = Asset::UserBanner.new unless self.banner
+  end
+
 end

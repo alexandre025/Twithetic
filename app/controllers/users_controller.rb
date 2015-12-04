@@ -8,6 +8,10 @@ class UsersController < ApplicationController
     @collection = Kaminari.paginate_array(@collection).page(params[:page]).per(10)
   end
 
+  def follow
+    
+  end
+
   private
     def load_resources
       @collection = Post.where(user: @object)
