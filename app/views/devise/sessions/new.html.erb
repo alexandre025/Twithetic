@@ -1,11 +1,11 @@
 <div class="form-wrapper">
 
-  <div class="form-header">
-    <h2><%= t 'users.login' %></h2>
-  </div>
+    <div class="form-header">
+      <h2><%= t 'users.login' %></h2>
+    </div>
 
   <div class="form-content">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-default'}) do |f| %>
       <div class="field">
         <div class="form-left">
           <%= f.label :email %>

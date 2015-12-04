@@ -5,16 +5,16 @@
 
   <nav>
     <% if user_signed_in? %>
-        <div class="popup">
-          <%= image_tag current_user.image.attachment.url(:thumb)%>
-          <%= link_to t('header.profil'), user_path(current_user), class: 'open-popup' %>
-          <div class="popup-content">
-            <%= link_to t('header.edit'), '#' %>
-            <%= link_to t('header.logout'), logout_path %>
-          </div>
+      <div class="popup">
+        <%= image_tag current_user.image.attachment.url(:thumb) %>
+        <%= link_to t('header.profil'), user_path(current_user), class: 'open-popup' %>
+        <div class="popup-content">
+          <%= link_to t('header.edit'), '#' %>
+          <%= link_to t('header.logout'), logout_path %>
         </div>
+      </div>
     <% else %>
-        <%= link_to t('header.login')+' | '+t('header.sign_in'), login_path %>
+      <%= link_to t('header.login'), login_path %> | <%= link_to t('header.sign_in'), new_user_registration_path %>
     <% end %>
   </nav>
 </header>
