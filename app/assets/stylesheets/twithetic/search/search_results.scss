@@ -5,7 +5,7 @@
       background-color: $white;
       height: 60px;
       line-height: 60px;
-      box-shadow: -3px 4px 10px 0px rgba(000, 000, 000, 0.05);
+      box-shadow: $box-shadow-stack;
 
       form{
         display: inline-block;

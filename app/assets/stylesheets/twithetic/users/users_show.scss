@@ -1,6 +1,5 @@
 #users_show{
 
-
   .user-cover{
     width: 100%;
     height: 400px;
@@ -17,6 +16,36 @@
         width: 100%;
         background-color: $background_light;
         border-radius: 10px;
+        box-shadow: -3px 4px 10px 0px rgba(000, 000, 000, 0.05);
+
+        ul{
+          margin: 0;
+          margin-top: 35px;
+          padding: 0;
+          font-size: 0;
+          li{
+            font-size: 14px;
+            display: inline-block;
+            width: 25%;
+
+            span{
+              width: 100%;
+              text-align: center;
+              display: block;
+
+              &.number {
+                font-size: 20px;
+                color: $blue;
+                font-weight: 700;
+              }
+              &.label {
+                text-transform: lowercase;
+              }
+            }
+
+
+          }
+        }
       }
     }
   }

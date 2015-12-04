@@ -3,10 +3,10 @@
 
     <div class="bottom">
       <ul>
-        <li><%= "#{@object.posts.count} #{t('user.posts')}" %></li>
-        <li><%= "#{@object.following_users_count} #{t('user.follow_count')}" %></li>
-        <li><%= "#{@object.followers_count} #{t('user.followers_count')}" %></li>
-        <li><%= "#{@object.following_posts_count} #{t('user.liked')}" %></li>
+        <li><span class="number"><%= @object.posts.count %></span><span class="label"><%= t('user.posts') %></span></li>
+        <li><span class="number"><%= @object.following_users_count %></span><span class="label"><%= t('user.follow_count') %></span></li>
+        <li><span class="number"><%= @object.followers_count %></span><span class="label"><%= t('user.followers_count') %></span></li>
+        <li><span class="number"><%= @object.following_posts_count %></span><span class="label"><%= t('user.liked') %></span></li>
       </ul>
     </div>
   </div>
