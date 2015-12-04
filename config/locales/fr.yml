@@ -24,3 +24,4 @@ fr:
     no_results:
       users: Aucun utilisateur ne correspond à votre recherche.
       tweets: Aucun tweet ne correspond à votre recherche.
+  trend_hashtags: "Trend Hastags"

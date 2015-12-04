@@ -7,12 +7,18 @@
   </div>
 </nav>
 
-<div class="results-for users">
+<div class="container results-for tweets">
 
   <% if @users.empty? %>
-    <span class="no-results"><%= t 'search.no_results.users' %></span>
+      <div class="sub-container-left no-results"><%= t 'search.no_results.users' %></div>
   <% else %>
+      <div class="sub-container-left">
 
+      </div>
   <% end %>
+
+  <div class="sub-container-right">
+    <%= render partial: 'shared/hashtag_box' %>
+  </div>
 
 </div>
