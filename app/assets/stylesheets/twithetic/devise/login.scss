@@ -6,6 +6,7 @@
     background-color: $background_light;
     border-radius: 5px;
     border: 1px solid $border_light;
+    box-shadow: $box-shadow-stack;
   }
 
   .form-header {
@@ -24,6 +25,43 @@
 
   .form-content {
     padding: 30px 115px;
+  }
+
+  form#new_user {
+    .field {
+      height: 45px;
+      line-height: 45px;
+      margin-bottom: 15px;
+    }
+
+    .form-left {
+      height: inherit;
+      width: 190px;
+      float: left;
+      text-align: left;
+    }
+
+    .form-right {
+      width: 415px;
+      float: left;
+    }
+
+    input[type=text],
+    input[type=email],
+    input[type=password] {
+      width: inherit;
+      height: 40px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      padding: 20px;
+      color: $blue_light;
+      font-weight: bold;
+    }
+
+    .actions {
+      text-align: right;
+    }
   }
 
 }
