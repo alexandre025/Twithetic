@@ -1,0 +1,40 @@
+.single-post-view {
+
+  &.with-image {
+
+  }
+
+  box-shadow: $box-shadow-stack;
+  position: relative;
+  padding: 30px;
+  background-color: $white;
+  border-radius: 10px;
+  width: 620px;
+  margin: 0 auto;
+
+  .post-user-image {
+    float: left;
+    border-radius: 50%;
+  }
+
+  .right {
+    padding-left: 70px;
+    a {
+      text-decoration: none;
+      color: $blue_light;
+    }
+    .post-user {
+      font-weight: 700;
+    }
+    .post-username {
+    }
+    .post-created_at {
+      float: right;
+      color: $grey-light;
+    }
+    .post-message {
+      margin-top: 15px;
+      word-break: break-all;
+    }
+  }
+}

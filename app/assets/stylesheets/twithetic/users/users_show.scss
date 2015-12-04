@@ -1,20 +1,20 @@
-#users_show{
+#users_show {
 
-  .user-cover{
+  .user-cover {
     width: 100%;
     height: 400px;
     margin-bottom: 120px;
 
-    background: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0));
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
 
-    .container{
+    .container {
       width: 480px;
       height: 100%;
       padding-top: 30px;
       position: relative;
       text-align: center;
 
-      img{
+      img {
         width: 130px;
         height: 130px;
         display: block;
@@ -23,20 +23,27 @@
         border: 3px solid $white;
       }
 
-      span{
+      span {
         display: block;
         text-align: center;
         color: $white;
 
-        &.user-firstname-lastname { margin-top: 20px; }
-        &.user-username{ margin-top: 15px; }
-        &.user-bio{ margin-top: 20px; }
+        &.user-firstname-lastname {
+          margin-top: 20px;
+          font-size: 24px;
+        }
+        &.user-username {
+          margin-top: 15px;
+        }
+        &.user-bio {
+          margin-top: 20px;
+          word-break: break-all;
+        }
 
       }
 
-
-      a{
-        svg{
+      a {
+        svg {
           width: 20px;
           height: 20px;
           display: inline-block;
@@ -45,22 +52,22 @@
           top: 4px;
           left: -5px;
         }
-        &.edit{
+        &.edit {
           display: inline-block;
           text-decoration: none;
           margin: 25px auto;
         }
-        &.follow,&.unfollow{
+        &.follow, &.unfollow {
           display: none;
           text-decoration: none;
           margin: 25px auto;
-          &.active{
+          &.active {
             display: inline-block;
           }
         }
       }
 
-      .bottom{
+      .bottom {
         position: absolute;
         bottom: -90px;
         height: 115px;
@@ -69,17 +76,17 @@
         border-radius: 10px;
         box-shadow: -3px 4px 10px 0px rgba(000, 000, 000, 0.05);
 
-        ul{
+        ul {
           margin: 0;
           margin-top: 35px;
           padding: 0;
           font-size: 0;
-          li{
+          li {
             font-size: 14px;
             display: inline-block;
             width: 25%;
 
-            span{
+            span {
               width: 100%;
               color: $black;
               padding: 0px;
@@ -93,7 +100,6 @@
                 text-transform: lowercase;
               }
             }
-
 
           }
         }
