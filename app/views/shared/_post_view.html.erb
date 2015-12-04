@@ -1,4 +1,4 @@
-<div id="post_<%= post.id %>" class="single-post-view" data-hook="single-post-view">
+<div id="post_<%= post.id %>" class="single-post-view infinite-scroll-item" data-hook="single-post-view">
     <%= content_tag :span, post.message, class: 'post-message' %>
     <%= image_tag(post.image.attachment.url(), class: 'post-image') if post.try(:image).try(:attachment) %>
     <%= content_tag :span, t('posts.writted_by', user: post.user.username), class: 'post-user' %>
@@ -14,4 +14,5 @@
     <%= render partial: 'shared/retweet_action', locals: {post: post } %>
 
     <%= render partial: 'shared/comment_form', locals: { post: post } %>
+
 </div>

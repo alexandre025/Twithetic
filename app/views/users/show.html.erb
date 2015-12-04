@@ -1,9 +1,22 @@
 <div class="user-cover" style="background-image: url('<%= @object.banner.attachment.url() %>')">
+  <div class="container">
 
+    <div class="bottom">
+      <ul>
+        <li><%= "#{@object.posts.count} #{t('user.posts')}" %></li>
+        <li><%= "#{@object.following_users_count} #{t('user.follow_count')}" %></li>
+        <li><%= "#{@object.followers_count} #{t('user.followers_count')}" %></li>
+        <li><%= "#{@object.following_posts_count} #{t('user.liked')}" %></li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <%= @object.email %>
 
+<div class="infinite-scroll">
 <% @collection.each do |p| %>
     <%= render partial: 'shared/post_view', locals: { post: p }%>
+      <%= link_to_next_page @collection, 'Next page', class: 'infinite-scroll infinite-scroll-item', params: params unless @collection.last_page? %>
 <% end %>
+</div>

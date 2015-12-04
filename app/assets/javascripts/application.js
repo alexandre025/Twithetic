@@ -15,9 +15,14 @@
 //= require turbolinks
 //= require_tree ./lib
 //= require_tree .
+//= require_self
 
 Turbolinks.enableProgressBar();
 
 $(document).on('ready page:load',function(e){
-   console.log('reloaded');
+    $('.infinite-scroll').jscroll({
+        loadingHtml: "<span>LOADING</span>",
+        nextSelector: 'a.infinite-scroll:last',
+        contentSelector: '.infinite-scroll-item'
+    });
 });
