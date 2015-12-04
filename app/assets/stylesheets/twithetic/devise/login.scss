@@ -1,0 +1,29 @@
+#sessions_new {
+
+  .form-wrapper {
+    margin: 60px auto;
+    width: 840px;
+    background-color: $background_light;
+    border-radius: 5px;
+    border: 1px solid $border_light;
+  }
+
+  .form-header {
+    margin: 0;
+    height: 60px;
+    border-bottom: 1px solid $border_strong;
+    h2 {
+      font-size: 18px;
+      color: $blue_light;
+      text-align: center;
+      padding: 0;
+      margin: 0;
+      line-height: 60px;
+    }
+  }
+
+  .form-content {
+    padding: 30px 115px;
+  }
+
+}
