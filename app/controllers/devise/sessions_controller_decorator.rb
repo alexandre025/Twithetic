@@ -7,6 +7,7 @@ Devise::SessionsController.class_eval do
     yield resource if block_given?
 
     resource.image = Asset::UserImage.new unless resource.image
+    resource.banner = Asset::UserBanner.new unless resource.banner
 
     respond_with resource, location: after_sign_in_path_for(resource)
   end

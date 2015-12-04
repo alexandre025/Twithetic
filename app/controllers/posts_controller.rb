@@ -9,19 +9,14 @@ class PostsController < ApplicationController
     @collection = Kaminari.paginate_array(@collection).page(params[:page]).per(10)
   end
 
-  def new
-    @object = Post.new(user: current_user)
-  end
-
   def create
     @object = Post.new(permitted_attributes)
     if @object.save
       flash.now[:notice] = 'new_post_success'
-      render :index
     else
       flash.now[:error] = 'new_post_error'
-      render :new
     end
+    redirect_to request.referer
   end
 
   def update

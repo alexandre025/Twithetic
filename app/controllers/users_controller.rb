@@ -1,12 +1,11 @@
 class UsersController < ApplicationController
 
+  before_action :load_resource, only:[:show]
   before_action :load_resources, only: [:show]
   before_action :add_page_to_params, only: [:show]
 
   def show
-    def user
-      @collection = Kaminari.paginate_array(@collection).page(params[:page]).per(10)
-    end
+    @collection = Kaminari.paginate_array(@collection).page(params[:page]).per(10)
   end
 
   private

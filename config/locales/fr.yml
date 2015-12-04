@@ -1,13 +1,14 @@
 fr:
   posts:
     actions:
-      create: Ajouter un post
+      create: Tweeter
       delete: Supprimer le post
       update: Mettre à jour le post
       retweet: RT
       like: "J'aime"
       unlike: "Je n'aime plus"
     writted_by: "Par %{user}"
+    write_new: "Ecrire un nouveau tweet..."
   header:
     login: Connexion
     sign_in: Inscription
