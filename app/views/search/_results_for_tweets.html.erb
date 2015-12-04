@@ -1,5 +1,8 @@
 <nav class="results">
   <div class="container">
-    TEST
+    <%= form_tag search_path(f: 'users') do %>
+        <%= hidden_field_tag :q, params[:q] %>
+        <%= submit_tag t('search.users')%>
+    <% end %> | <%= content_tag 'span', t('search.results', count: @posts.count.to_s, for: params[:q]) %>
   </div>
 </nav>

@@ -1,5 +1,7 @@
-<% if params.has_key? :f and params[:f] == 'user' %>
+<% if params.has_key? :f and params[:f] == 'users' %>
     <%= render partial: 'search/results_for_users', locals: {users: @users} %>
 <% else %>
     <%= render partial: 'search/results_for_tweets', locals: {users: @posts} %>
 <% end %>
+
+<%= console %>

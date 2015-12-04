@@ -1,0 +1,18 @@
+<nav class="results">
+  <div class="container">
+    <%= form_tag search_path do %>
+        <%= hidden_field_tag :q, params[:q] %>
+        <%= submit_tag t('search.tweets')%>
+    <% end %> | <%= content_tag 'span', t('search.results', count: @users.count.to_s, for: params[:q]) %>
+  </div>
+</nav>
+
+<div class="results-for users">
+
+  <% if @users.empty? %>
+    <span class="no-results"><%= t 'search.no_results.users' %></span>
+  <% else %>
+
+  <% end %>
+
+</div>

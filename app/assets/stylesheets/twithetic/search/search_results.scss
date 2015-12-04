@@ -5,15 +5,23 @@
       background-color: $white;
       height: 60px;
       line-height: 60px;
+
+      form{
+        display: inline-block;
+      }
     }
   }
 
-  .users{
 
+  .results-for{
+    &.users{
+
+    }
+
+    &.tweets{
+
+    }
   }
 
-  .tweets{
-
-  }
 
 }

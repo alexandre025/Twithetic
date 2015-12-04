@@ -4,7 +4,7 @@ class SearchController < ApplicationController
   before_action :add_page_to_params, only: [:hashtag]
 
   def search_results
-    # console
+
   end
 
   def hashtag
@@ -16,7 +16,7 @@ class SearchController < ApplicationController
     def load_resources
       if params.has_key? :q
         @posts = Post.ransack(message_cont: params[:q]).result
-        @users = User.ransack(user_name_cont: params[:q]).result
+        @users = User.ransack(username_cont: params[:q]).result
       else
         @users = User.all
         @posts = Post.all
