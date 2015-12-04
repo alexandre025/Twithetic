@@ -1,0 +1,58 @@
+#new-post-button {
+  position: fixed;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  background-color: $pink;
+  bottom: 25px;
+  right: 25px;
+  text-align: center;
+  cursor: pointer;
+
+  svg {
+    margin: 0 auto;
+    fill: $white;
+    width: 35px;
+    height: 35px;
+    margin-top: 17px;
+  }
+}
+
+#new-post-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  display: none;
+
+  &.active {
+    display: block;
+  }
+
+  .new-post {
+    position: absolute;
+    top: calc(50% - 100px);
+    left: calc(50% - 370px);
+    width: 740px;
+    height: 200px;
+    background-color: $white;
+    border-radius: 10px;
+
+    #new-post-close{
+      position: absolute;
+      right: -40px;
+      top: 5px;
+      cursor: pointer;
+
+      svg {
+        width: 25px;
+        height: 25px;
+        fill: $grey;
+
+      }
+    }
+  }
+}
