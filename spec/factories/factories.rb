@@ -1,11 +1,11 @@
 FactoryGirl.define do
 
   factory :user do
-    firstname { Faker::Internet.firstname }
-    lastname { Faker::Internet.lastname }
     username { Faker::Internet.user_name }
     email { "#{Faker::Internet.user_name}@example.com" }
     password Faker::Internet.password(10)
+    firstname Faker::Name.first_name
+    lastname Faker::Name.last_name
   end
 
   factory :post do
@@ -15,5 +15,7 @@ FactoryGirl.define do
       message 'tweet with some hashtags #love #ruby'
     end
   end
+
+
 
 end
