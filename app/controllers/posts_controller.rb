@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :update, :create, :delete, :like, :retweet]
+  before_action :authenticate_user!, only: [:index, :new, :update, :create, :delete, :like, :retweet]
 
   before_action :load_collection, only: [:index]
   before_action :load_resource, only: [:update, :delete, :show]
@@ -16,7 +16,7 @@ class PostsController < ApplicationController
     else
       flash.now[:error] = 'new_post_error'
     end
-    redirect_to request.referer
+    redirect_to user_path(current_user)
   end
 
   def update
@@ -67,8 +67,8 @@ class PostsController < ApplicationController
     end
 
     def load_collection
-        # TO-DO : Posted by followed users
-        @collection = Post.all.order(created_at: :asc)
+        user_ids = current_user.following_users.pluck(:id)
+        @collection = Post.where(user: user_ids)
     end
 
     def permitted_attributes
