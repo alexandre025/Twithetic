@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
-  before_action :authenticate_user!, only: [:follow]
+  before_action :authenticate_user!, only: [:follow, :edit, :update]
 
-  before_action :load_resource, only: [:show]
+  before_action :load_resource, only: [:show, :edit]
   before_action :load_resources, only: [:show]
   before_action :add_page_to_params, only: [:show]
 
@@ -18,6 +18,14 @@ class UsersController < ApplicationController
       current_user.follow(user)
     end
     redirect_to request.referer
+  end
+
+  def edit
+
+  end
+
+  def update
+
   end
 
   private

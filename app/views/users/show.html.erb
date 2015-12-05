@@ -11,7 +11,7 @@
 
     <% if user_signed_in? %>
         <% if current_user == @object %>
-            <a href="#" class="default-btn edit"><%= inline_svg 'edit_compte.svg' %><%= t('users.actions.edit') %></a>
+            <a href="<%= edit_user_path(current_user)%>" class="default-btn edit"><%= inline_svg 'edit_compte.svg' %><%= t('users.actions.edit') %></a>
         <% elsif current_user.following?(@object) %>
             <%= link_to t('users.actions.unfollow'), user_follow_path(@object.id), class: 'active unfollow default-btn' %>
             <%= link_to t('users.actions.follow'), user_follow_path(@object.id), class: 'follow default-btn' %>

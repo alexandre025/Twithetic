@@ -1,0 +1,21 @@
+<% if can? :update, @object %>
+    <%= form_for @object do |f| %>
+
+        <%= f.fields_for :image do |i| %>
+            <%= i.file_field :attachment %>
+        <% end %>
+
+        <%= f.fields_for :banner do |b| %>
+            <%= b.file_field :attachment %>
+        <% end %>
+
+        <%= f.text_field :firstname %>
+
+        <%= f.text_field :lastname %>
+
+        <%= f.text_area :bio %>
+
+        <%= f.submit %>
+
+    <% end %>
+<% end %>

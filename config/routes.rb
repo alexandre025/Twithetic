@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   post 'search' => 'search#search_results'
   get 'hashtag/:hashtag' => 'search#hashtag', as: :hashtag
 
-  resources :users, only: [:show] do
+  resources :users, only: [:show,:edit,:update] do
     get 'follow' => 'users#follow'
   end
 

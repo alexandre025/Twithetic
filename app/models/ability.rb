@@ -1,18 +1,19 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user)
+  def initialize(current_user)
 
-    user ||= User.new
+    current_user ||= User.new
 
-    can [:create,:read], :post
-    can [:update,:destroy], :post, user_id: user.id
+    can [:create,:read], Post
+    can [:update,:destroy], Post, user_id: current_user.id
 
-    can [:create,:read], :comment
-    can [:destroy], :comment, user_id: user.id
+    can [:create,:read], Comment
+    can [:destroy], Comment, user_id: current_user.id
 
-    can [:create,:read,:update], :user
-    cannot :destroy, :user
+    can [:create,:read], User
+    can [:update], User, id: current_user.id
+    cannot :destroy, User
 
   end
 end
