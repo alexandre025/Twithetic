@@ -8,6 +8,7 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'factory_girl'
 require 'faker'
+require 'devise'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -64,5 +65,9 @@ RSpec.configure do |config|
   Dir[Rails.root.join("spec/support/**/*.rb")].each do |f|
     require f
   end
+
+  # Devise support for Rspec controller test
+  config.include Devise::TestHelpers, type: :controller
+  config.extend ControllerMacros, type: :controller
 
 end
