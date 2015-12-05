@@ -8,21 +8,26 @@ class User < ActiveRecord::Base
   validates :firstname, presence: true
   validates :lastname, presence: true
 
-  has_many :posts
+  # Pretty urls
+  extend FriendlyId
+  friendly_id :username
 
-  has_many :comments
-
+  # Is followable
   acts_as_followable
+
+  # Is follower
   acts_as_follower
 
+  # Associations
   has_one :image, as: :viewable, class_name: 'Asset::UserImage', dependent: :destroy
   accepts_nested_attributes_for :image
 
   has_one :banner, as: :viewable, class_name: 'Asset::UserBanner', dependent: :destroy
   accepts_nested_attributes_for :banner
 
-  extend FriendlyId
-  friendly_id :username
+  has_many :posts
+
+  has_many :comments
 
   after_initialize do
     self.image = Asset::UserImage.new unless self.image

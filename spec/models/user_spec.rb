@@ -5,8 +5,10 @@ RSpec.describe User, :type => :model do
   it 'can be saved' do
     email = Faker::Internet.email
     user_name = Faker::Internet.user_name
+    firstname = Faker::Internet.firstname
+    lastname = Faker::Internet.lastname
 
-    user = User.create(email: email, password: Faker::Internet.password, username: user_name)
+    user = User.create(email: email, password: Faker::Internet.password, username: user_name, firstname: firstname, lastname: lastname)
     user.save!
 
     found = User.last
@@ -17,15 +19,15 @@ RSpec.describe User, :type => :model do
   it 'is impossible to add the same username twice' do
     user_name = Faker::Internet.user_name
 
-    user = User.create(email: Faker::Internet.email, password: Faker::Internet.password, username: user_name)
+    user = User.create(email: Faker::Internet.email, password: Faker::Internet.password, username: user_name, firstname: Faker::Internet.firstname, lastname: Faker::Internet.lastname)
     expect(user.valid?).to eq(true)
 
-    other_user = User.create(email: Faker::Internet.email, password: Faker::Internet.password, username: user_name)
+    other_user = User.create(email: Faker::Internet.email, password: Faker::Internet.password, username: user_name, firstname: Faker::Internet.firstname, lastname: Faker::Internet.lastname)
     expect(other_user.valid?).to eq(false)
   end
 
   it 'can edit' do
-    user = User.create(email: Faker::Internet.email, password: Faker::Internet.password, username: Faker::Internet.user_name)
+    user = User.create(email: Faker::Internet.email, password: Faker::Internet.password, username: Faker::Internet.user_name, firstname: Faker::Internet.firstname, lastname: Faker::Internet.lastname)
     user.save!
 
     user.password = Faker::Internet.password
@@ -33,7 +35,7 @@ RSpec.describe User, :type => :model do
   end
 
   it 'can be destroy' do
-    user = User.create(email: Faker::Internet.email, password: Faker::Internet.password, username: Faker::Internet.user_name)
+    user = User.create(email: Faker::Internet.email, password: Faker::Internet.password, username: Faker::Internet.user_name, firstname: Faker::Internet.firstname, lastname: Faker::Internet.lastname)
     user.save!
 
     expect(user.destroy).to_not eq(false)

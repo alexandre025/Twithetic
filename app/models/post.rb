@@ -1,14 +1,24 @@
 class Post < ActiveRecord::Base
 
-  belongs_to :user
-  belongs_to :parent, class_name: 'Post'
+  # Scope
+  default_scope { order(created_at: :desc) }
 
-  acts_as_followable
+  # Associations
+  belongs_to :user
+
+  belongs_to :parent, class_name: 'Post'
 
   has_one :image, as: :viewable, class_name: 'Asset::PostImage', dependent: :destroy
   accepts_nested_attributes_for :image
+
   has_many :comments, dependent: :destroy
 
+  has_many :retweets, class_name: 'Post', dependent: :destroy
+
+  # Is followable
+  acts_as_followable
+
+  # Methods
   after_save :parse_hashtags
 
   def retweet(by_user)
@@ -33,8 +43,8 @@ class Post < ActiveRecord::Base
 
   def parse_hashtags
     hashtags = self.message.scan(/(#\w+)/).flatten
-    hashtags.each do |hashtag|
-      tag = hashtag.tr('#', '')
+    hashtags.each do |h|
+      tag = h.tr('#', '')
       stored_hashtag = Hashtag.where(name: tag).first
       if stored_hashtag.present?
         stored_hashtag.mention = stored_hashtag.mention + 1

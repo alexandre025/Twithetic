@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
   private
   def load_resources
-    @collection = Post.where(user: @object).order(created_at: :asc)
+    @collection = Post.where(user: @object)
   end
 
   def load_resource

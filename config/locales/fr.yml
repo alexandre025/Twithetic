@@ -9,6 +9,7 @@ fr:
       unlike: "Je n'aime plus"
     writted_by: "Par %{user}"
     write_new: "Ecrire un nouveau tweet..."
+    retweeted_from: "Retweeté de"
   header:
     login: Connexion
     sign_in: Inscription
