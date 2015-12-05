@@ -4,6 +4,8 @@ FactoryGirl.define do
     username { Faker::Internet.user_name }
     email { "#{Faker::Internet.user_name}@example.com" }
     password Faker::Internet.password(10)
+    firstname Faker::Name.first_name
+    lastname Faker::Name.last_name
   end
 
   factory :post do
