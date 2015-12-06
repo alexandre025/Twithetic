@@ -14,7 +14,8 @@
 
 .idea
 .DS_Store
-public/
+public/assets
+public/twithetic
 vendor/
 
 # Ignore application configuration

@@ -12,8 +12,7 @@ class Ability
     can [:destroy], Comment, user_id: current_user.id
 
     can [:create,:read], User
-    can [:update], User, id: current_user.id
-    cannot :destroy, User
+    can [:update,:destroy], User, id: current_user.id
 
   end
 end

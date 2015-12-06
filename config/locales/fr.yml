@@ -41,3 +41,12 @@ fr:
     followers_count: "Abonnés"
     follow_count: "Abonnements"
     posts: "Tweets"
+  profil:
+    firstname: "firstname"
+    banner: "banner"
+    image: "image"
+    lastname: "lastname"
+    bio: "bio"
+  profile:
+    actions:
+      update: "update"
