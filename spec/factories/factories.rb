@@ -19,6 +19,10 @@ FactoryGirl.define do
     end
   end
 
-
+  factory :comment do
+    message { Faker::Lorem.sentence }
+    user
+    post
+  end
 
 end

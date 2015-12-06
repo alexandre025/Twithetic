@@ -16,7 +16,7 @@ class PostsController < ApplicationController
     else
       flash.now[:error] = 'new_post_error'
     end
-    redirect_to user_path(current_user)
+    redirect_to request.referrer || user_path(current_user)
   end
 
   def update
