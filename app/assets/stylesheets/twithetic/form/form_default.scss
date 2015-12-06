@@ -58,6 +58,11 @@ form.form-default {
     font-weight: bold;
   }
 
+  textarea {
+    @extend input[type=text];
+    height: 100px;
+  }
+
   .actions {
     text-align: right;
   }

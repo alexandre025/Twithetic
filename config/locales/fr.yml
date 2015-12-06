@@ -34,6 +34,8 @@ fr:
       edit: "Editer le profil"
       follow: "S'abonner"
       unfollow: "Se désabonner"
+    form:
+      edit: "Editer votre profil"
   user:
     liked: "Favoris"
     followers_count: "Abonnés"

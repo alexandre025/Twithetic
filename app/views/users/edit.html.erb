@@ -1,21 +1,68 @@
-<% if can? :update, @object %>
-    <%= form_for @object do |f| %>
+<div class="form-wrapper">
 
-        <%= f.fields_for :image do |i| %>
-            <%= i.file_field :attachment %>
-        <% end %>
+  <div class="form-header">
+    <h2><%= t 'users.form.edit' %></h2>
+  </div>
 
-        <%= f.fields_for :banner do |b| %>
-            <%= b.file_field :attachment %>
-        <% end %>
+  <% if can? :update, @object %>
+    <div class="form-content">
+      <%= form_for @object, html: {class: 'form-default'} do |f| %>
 
-        <%= f.text_field :firstname %>
+        <div class="field">
+          <div class="form-left">
+            <%= f.label :image %>
+          </div>
+          <div class="form-right">
+            <%= f.fields_for :image do |i| %>
+              <%= i.file_field :attachment %>
+            <% end %>
+          </div>
+        </div>
 
-        <%= f.text_field :lastname %>
+        <div class="field">
+          <div class="form-left">
+            <%= f.label :banner %>
+          </div>
+          <div class="form-right">
+            <%= f.fields_for :banner do |b| %>
+              <%= b.file_field :attachment %>
+            <% end %>
+          </div>
+        </div>
 
-        <%= f.text_area :bio %>
+        <div class="field">
+          <div class="form-left">
+            <%= f.label :firstname %>
+          </div>
+          <div class="form-right">
+            <%= f.text_field :firstname %>
+          </div>
+        </div>
 
-        <%= f.submit %>
+        <div class="field">
+          <div class="form-left">
+            <%= f.label :lastname %>
+          </div>
+          <div class="form-right">
+            <%= f.text_field :lastname %>
+          </div>
+        </div>
 
-    <% end %>
-<% end %>
+        <div class="field">
+          <div class="form-left">
+            <%= f.label :bio %>
+          </div>
+          <div class="form-right">
+            <%= f.text_area :bio %>
+          </div>
+        </div>
+
+        <div class="actions">
+          <%= f.submit 'Update', class: 'default-btn' %>
+        </div>
+
+      <% end %>
+    </div>
+  <% end %>
+
+</div>
