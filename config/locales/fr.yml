@@ -49,7 +49,7 @@ fr:
     bio: "Biographie courte"
     actions:
       update: "Enregistrer les modifications"
-    need_pwd_to_confirm: "nous avons besoins de votre mot de passe actuelle pour valider vos modifications"
+    need_pwd_to_confirm: "nous avons besoins de votre mot de passe actuel pour valider vos modifications"
     password: "Nouveau mot de passe"
     password_confirm: "Confirmez le mot de passe"
     current_password: "Mot de passe actuel"
