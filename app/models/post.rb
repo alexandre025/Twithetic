@@ -13,8 +13,6 @@ class Post < ActiveRecord::Base
 
   has_many :comments, dependent: :destroy
 
-  has_many :retweets, class_name: 'Post', dependent: :destroy
-
   # Is followable
   acts_as_followable
 

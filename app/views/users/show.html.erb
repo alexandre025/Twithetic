@@ -1,4 +1,4 @@
-<div class="user-cover" style="background-image: url('<%= @object.banner.attachment.url() %>') center center no-repeat cover">
+<div class="user-cover" style="background-image: url('<%= @object.banner.attachment.url(:profil) %>'), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));">
   <div class="container">
 
     <%= image_tag @object.image.attachment.url(:regular), class: 'user-image' %>

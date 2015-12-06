@@ -5,7 +5,8 @@
     height: 400px;
     margin-bottom: 120px;
 
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    background: no-repeat fixed center;
+    background-size: cover;
 
     .container {
       width: 480px;

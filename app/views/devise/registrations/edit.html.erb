@@ -16,7 +16,7 @@
 
             <div class="field">
               <div class="form-left">
-                <%= f.label t('profil.image') %>
+                <%= f.label t('profil.image') %> :
               </div>
               <div class="form-right">
                 <%= f.fields_for :image do |i| %>
@@ -27,7 +27,7 @@
 
             <div class="field">
               <div class="form-left">
-                <%= f.label t('profil.banner') %>
+                <%= f.label t('profil.banner') %> :
               </div>
               <div class="form-right">
                 <%= f.fields_for :banner do |b| %>
@@ -38,7 +38,7 @@
 
             <div class="field">
               <div class="form-left">
-                <%= f.label t('profil.firstname') %>
+                <%= f.label t('profil.firstname') %> :
               </div>
               <div class="form-right">
                 <%= f.text_field :firstname %>
@@ -47,7 +47,7 @@
 
             <div class="field">
               <div class="form-left">
-                <%= f.label t('profil.lastname') %>
+                <%= f.label t('profil.lastname') %> :
               </div>
               <div class="form-right">
                 <%= f.text_field :lastname %>
@@ -56,7 +56,7 @@
 
             <div class="field">
               <div class="form-left">
-                <%= f.label t('profil.bio') %>
+                <%= f.label t('profil.bio') %> :
               </div>
               <div class="form-right">
                 <%= f.text_area :bio %>
@@ -64,22 +64,22 @@
             </div>
 
             <div class="field">
-              <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+              <%= f.label t('profil.password') %> <i>(<%= t('profil.password_leave_blank')%>)</i><br />
               <%= f.password_field :password, autocomplete: "off" %>
             </div>
 
             <div class="field">
-              <%= f.label :password_confirmation %><br />
+              <%= f.label t('profil.password_confirm') %> :<br />
               <%= f.password_field :password_confirmation, autocomplete: "off" %>
             </div>
 
             <div class="field">
-              <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+              <%= f.label t('profil.current_password') %> <i>(<%= t('profil.need_pwd_to_confirm') %>)</i><br />
               <%= f.password_field :current_password, autocomplete: "off" %>
             </div>
 
             <div class="actions">
-              <%= f.submit t('profile.actions.update'), class: 'default-btn' %>
+              <%= f.submit t('profil.actions.update'), class: 'default-btn' %>
             </div>
 
         <% end %>

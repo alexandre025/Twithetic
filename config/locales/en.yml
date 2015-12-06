@@ -21,3 +21,6 @@
 
 en:
   hello: "Hello world"
+  profil:
+    need_pwd_to_confirm: "we need your current password to confirm your changes"
+    password_leave_blank: "leave blank if you don't want to change it"

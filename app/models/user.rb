@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   has_one :banner, as: :viewable, class_name: 'Asset::UserBanner', dependent: :destroy
   accepts_nested_attributes_for :banner
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
 
   has_many :comments
 

@@ -42,11 +42,15 @@ fr:
     follow_count: "Abonnements"
     posts: "Tweets"
   profil:
-    firstname: "firstname"
-    banner: "banner"
-    image: "image"
-    lastname: "lastname"
-    bio: "bio"
-  profile:
+    firstname: "Prénom"
+    banner: "Arrière-plan"
+    image: "Photo de profil"
+    lastname: "Nom"
+    bio: "Biographie courte"
     actions:
-      update: "update"
+      update: "Enregistrer les modifications"
+    need_pwd_to_confirm: "nous avons besoins de votre mot de passe actuelle pour valider vos modifications"
+    password: "Nouveau mot de passe"
+    password_confirm: "Confirmez le mot de passe"
+    current_password: "Mot de passe actuel"
+    password_leave_blank: "laissez vide si vous ne souhaitez pas le changer"

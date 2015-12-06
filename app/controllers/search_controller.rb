@@ -18,7 +18,7 @@ class SearchController < ApplicationController
     def load_resources
       if params.has_key? :q
         @posts = Post.ransack(message_cont: params[:q]).result
-        @users = User.ransack(username_cont: params[:q]).result
+        @users = User.ransack(username_or_firstname_or_lastname_cont: params[:q]).result
       else
         @users = User.all
         @posts = Post.all
