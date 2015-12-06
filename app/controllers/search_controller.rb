@@ -1,5 +1,7 @@
 class SearchController < ApplicationController
 
+  before_action :authenticate_user!
+
   before_action :load_resources, only: [:search_results]
   before_action :add_page_to_params, only: [:hashtag]
 
