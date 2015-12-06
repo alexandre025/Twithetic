@@ -32,14 +32,15 @@ body{
 
   .sub-container-left{
     width: 620px;
-    float: left;
     clear: both;
+    display: inline-block;
   }
 
   .sub-container-right{
     width: 280px;
     float: right;
     clear: both;
+    display: inline-block;
   }
 }
 
