@@ -21,20 +21,23 @@ class UsersController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
-
+    redirect_to user_path
   end
 
   private
-  def load_resources
-    @collection = Post.where(user: @object)
-  end
+    def load_resources
+      @collection = Post.where(user: @object)
+    end
 
-  def load_resource
-    @object = User.friendly.find(params[:id])
-  end
+    def load_resource
+      @object = User.friendly.find(params[:id])
+    end
+
+    def permitted_attributes
+      params.require(:user).permit(:firstname, :lastname, :bio, :image, :banner)
+    end
 
 end

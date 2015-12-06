@@ -9,7 +9,7 @@
         <%= image_tag current_user.image.attachment.url(:thumb) %>
         <%= link_to t('header.profil'), user_path(current_user), class: 'open-popup' %>
         <div class="popup-content">
-          <%= link_to t('header.edit'), '#' %>
+          <%= link_to t('header.edit'), edit_user_path(current_user) %>
           <%= link_to t('header.logout'), logout_path %>
         </div>
       </div>
