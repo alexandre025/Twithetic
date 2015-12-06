@@ -1,0 +1,26 @@
+<nav class="results">
+  <div class="container">
+    <%= form_tag search_path(f: 'users') do %>
+        <%= hidden_field_tag :q, params[:q] %>
+        <%= submit_tag t('search.users') %>
+    <% end %> | <%= content_tag 'span', t('search.results', count: @posts.count.to_s, for: params[:q]) %>
+  </div>
+</nav>
+
+<div class="container results-for tweets">
+
+  <% if @posts.empty? %>
+      <div class="sub-container-left no-results"><%= t 'search.no_results.tweets' %></div>
+  <% else %>
+      <div class="sub-container-left">
+        <% @posts.each do |p| %>
+            <%= render partial: 'shared/post_view', locals: {post: p} %>
+        <% end %>
+      </div>
+  <% end %>
+
+  <div class="sub-container-right">
+    <%= render partial: 'shared/hashtag_box' %>
+  </div>
+
+</div>
