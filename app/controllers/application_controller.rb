@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
   private
     def configure_permitted_parameters
       devise_parameter_sanitizer.for(:sign_up) << [:username,:firstname,:lastname]
+      devise_parameter_sanitizer.for(:account_update) << [:firstname,:lastname,image_attributes: [:attachment],banner_attributes: [:attachment]]
     end
 
     def add_page_to_params
