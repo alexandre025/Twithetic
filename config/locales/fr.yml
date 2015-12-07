@@ -35,7 +35,7 @@ fr:
       follow: "S'abonner"
       unfollow: "Se désabonner"
     form:
-      edit: "Editer votre profil"
+      edit: "Changer les paramètres de base de votre profil"
   user:
     liked: "Favoris"
     followers_count: "Abonnés"
@@ -54,3 +54,5 @@ fr:
     password_confirm: "Confirmez le mot de passe"
     current_password: "Mot de passe actuel"
     password_leave_blank: "laissez vide si vous ne souhaitez pas le changer"
+    cancel_account: "Je souhaite supprimer mon compte"
+    cancel_confirm: "Confirmer la suppression de votre compte ?"
