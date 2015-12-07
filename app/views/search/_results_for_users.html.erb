@@ -1,9 +1,6 @@
 <nav class="results">
   <div class="container">
-    <%= form_tag search_path do %>
-        <%= hidden_field_tag :q, params[:q] %>
-        <%= submit_tag t('search.tweets')%>
-    <% end %> | <%= content_tag 'span', t('search.results', count: @users.count.to_s, for: params[:q]) %>
+    <%= link_to t('search.tweets'), search_path(q: params[:q]) %> | <%= content_tag 'span', t('search.results', count: @users.count.to_s, for: params[:q]) %>
   </div>
 </nav>
 

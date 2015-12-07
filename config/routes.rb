@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create,:destroy]
   end
 
-  post 'search' => 'search#search_results'
+  get 'search' => 'search#search_results'
   get 'hashtag/:hashtag' => 'search#hashtag', as: :hashtag
 
   resources :users, only: [:show] do
