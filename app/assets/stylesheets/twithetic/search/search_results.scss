@@ -1,26 +1,43 @@
 #search_search_results, #search_hashtag {
 
-  nav{
+  nav {
     &.results {
       background-color: $white;
       height: 60px;
+      font-size: 16px;
       line-height: 60px;
       box-shadow: $box-shadow-stack;
 
-      form{
-        display: inline-block;
+      span {
+        color: $pink;
+      }
+
+      a {
+        color: $blue_light;
+        text-decoration: none;
       }
     }
   }
 
-  .results-for{
-    &.users{
+  .results-for {
+    &.users {
 
     }
 
-    &.tweets{
+    &.tweets {
 
     }
+  }
+
+  .no-results {
+    line-height: 90px;
+    text-align: center;
+    color: $blue-light;
+    background-color: $white;
+    margin: 20px auto;
+    box-shadow: $box-shadow-stack;
+    border-radius: 10px;
+    font-size: 18px;
   }
 
 }

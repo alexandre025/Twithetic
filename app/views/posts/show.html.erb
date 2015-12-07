@@ -1,5 +1,1 @@
-<%= @object.message %>
-
-<% @object.comments.each do |c| %>
-  <%= c.user.username %> : <%= c.message %>
-<% end %>
+<%= render partial: 'shared/post_view', locals: { post: @object }%>

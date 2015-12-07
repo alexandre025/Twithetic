@@ -1,14 +1,27 @@
-<% if user_signed_in? %>
-    <% if current_user == post.user %>
-        Can't RT your own post <%= post.count_retweet %>
-    <% elsif !post.retweeted?(current_user) %>
-        Already RT <%= post.count_retweet %>
-    <% else %>
-        <%= form_tag post_retweet_path(post_id: post.id), remote: true do %>
-            <%= submit_tag t('posts.actions.retweet') %>
-        <% end %>
-        <%= post.count_retweet %>
-    <% end %>
-<% else %>
-    Need to be logged to RT <%= post.count_retweet %>
-<% end %>
+<% count = post.try(:parent).try(:count_retweet) || post.count_retweet %>
+<% puts count %>
+<div class="retweet-button">
+  <% if user_signed_in? %>
+      <% if current_user == post.user %>
+          <% if post.parent %>
+              <%= content_tag :span, count, class: 'blue' %>
+              <%= image_tag 'retweet_blue.png' %>
+          <% else %>
+              <%= content_tag :span, count %>
+              <%= image_tag 'retweet_grey.png' %>
+          <% end %>
+      <% elsif !post.retweeted?(current_user) %>
+          <%= content_tag :span, count, class: 'blue' %>
+          <%= image_tag 'retweet_blue.png' %>
+      <% else %>
+          <%= form_tag post_retweet_path(post_id: post.id), remote: true, class: 'retweet-form' do %>
+              <%= content_tag :span, count %>
+              <%= image_submit_tag 'retweet_grey.png' %>
+              <%= image_tag 'retweet_blue.png' %>
+          <% end %>
+      <% end %>
+  <% else %>
+      <%= content_tag :span, count %>
+      <%= image_tag 'retweet_grey.png' %>
+  <% end %>
+</div>

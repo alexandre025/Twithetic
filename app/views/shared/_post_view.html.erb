@@ -16,24 +16,30 @@
       <span class="post-username"><%= link_to "@#{post.user.username}", user_path(post.user) %></span>
       <span class="post-created_at"><%= post.created_at.strftime('%d/%m/%Y') %></span>
       <% if post.parent %>
-        <div class="post-retweeted"><%= t 'posts.retweeted_from' %> <%= link_to "@#{post.parent.user.username}", user_path(post.parent.user) %></div>
+          <div class="post-retweeted"><%= t 'posts.retweeted_from' %> <%= link_to "@#{post.parent.user.username}", user_path(post.parent.user) %></div>
       <% end %>
       <%= content_tag :div, post.message.html_safe, class: 'post-message' %>
     </div>
   </div>
 
+  <div class="post-side">
+    <div class="like-button">
+      <% if user_signed_in? %>
+          <%= form_tag post_like_path(post_id: post.id), remote: true, class: ['like-form', ('active' if current_user.following?(post))] do %>
+              <%= content_tag :span, post.followers_count %>
+              <%= image_submit_tag 'like_pink.png', class: 'unlike-button' %>
+              <%= image_submit_tag 'like_grey.png', class: 'like-button' %>
+          <% end %>
+      <% else %>
+          <%= content_tag :span, post.followers_count %>
+          <%= image_tag 'like_grey.png' %>
+      <% end %>
+    </div>
 
+    <%= render partial: 'shared/retweet_action', locals: { post: post } %>
 
-  <% if user_signed_in? %>
-      <div data-hook="post-like">
-        <%= form_tag post_like_path(post_id: post.id), remote: true do %>
-            <%= submit_tag t('posts.actions.like'), class: ('liked' if current_user.following?(post)) %>
-        <% end %>
-      </div>
-  <% end %>
+  </div>
 
-  <%= render partial: 'shared/retweet_action', locals: {post: post} %>
-
-  <%= render partial: 'shared/comment_form', locals: {post: post} if controller_name == 'posts' and action_name == 'show' %>
+  <%#= render partial: 'shared/comment_form', locals: {post: post} if controller_name == 'posts' and action_name == 'show' %>
 
 </div>

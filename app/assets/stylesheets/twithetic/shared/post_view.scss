@@ -36,5 +36,73 @@
       margin-top: 15px;
       word-break: break-all;
     }
+    .post-retweeted {
+      font-style: italic;
+      font-size: 12px;
+    }
   }
+
+  .post-side {
+    position: absolute;
+    top: 2px;
+    left: -35px;
+    width: 35px;
+    color: $grey-light;
+    text-align: center;
+
+    .retweet-button {
+      .blue {
+        color: $blue-light;
+      }
+    }
+
+    img {
+      margin: 2px auto;
+      display: block;
+    }
+
+    form {
+      input[type=image] {
+        margin: 2px auto;
+        outline: none;
+        display: block;
+      }
+      &.like-form {
+        input[type=image] {
+          &.unlike-button {
+            display: none;
+          }
+          &.like-button {
+            display: block;
+          }
+        }
+        &.active {
+          color: $pink;
+          input[type=image] {
+            &.unlike-button {
+              display: block;
+            }
+            &.like-button {
+              display: none;
+            }
+          }
+        }
+      }
+      &.retweet-form{
+        img {
+          display: none;
+        }
+        &.submitted {
+          color: $blue-light;
+          input[type=image] {
+            display: none;
+          }
+          img {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
 }

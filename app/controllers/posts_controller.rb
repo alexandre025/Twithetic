@@ -31,13 +31,9 @@ class PostsController < ApplicationController
 
   def retweet
     post = Post.find(params[:post_id])
-    begin
-      retweeted = post.retweet(current_user)
-      retweeted.save!
-      render json: {}, status: 200
-    rescue
-      # TODO: Handling Exception if user try to retweet is own tweet
-    end
+    retweeted = post.retweet(current_user)
+    retweeted.save!
+    render json: {}, status: 200
   end
 
 
@@ -53,17 +49,17 @@ class PostsController < ApplicationController
 
   private
 
-    def load_resource
-      @object = Post.find(params[:id])
-    end
+  def load_resource
+    @object = Post.find(params[:id])
+  end
 
-    def load_collection
-        user_ids = current_user.following_users.pluck(:id) << current_user.id
-        @collection = Post.where(user: user_ids)
-    end
+  def load_collection
+    user_ids = current_user.following_users.pluck(:id) << current_user.id
+    @collection = Post.where(user: user_ids)
+  end
 
-    def permitted_attributes
-      params.require(:post).permit(:user_id, :message, image_attributes: [:attachment])
-    end
+  def permitted_attributes
+    params.require(:post).permit(:user_id, :message, image_attributes: [:attachment])
+  end
 
 end
