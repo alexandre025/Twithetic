@@ -67,7 +67,8 @@
 
             <div class="field">
               <div class="form-left">
-                <%= f.label t('profil.password') %> : <br/><span class="legend">(<%= t('profil.password_leave_blank') %>)</span>
+                <%= f.label t('profil.password') %> : <br/><span class="legend">(<%= t('profil.password_leave_blank') %>
+                )</span>
               </div>
               <div class="form-right">
                 <%= f.password_field :password, autocomplete: 'off' %>
@@ -89,7 +90,8 @@
 
             <div class="field">
               <div class="form-left">
-                <%= f.label t('profil.current_password') %> : <br/><span class="legend">(<%= t('profil.need_pwd_to_confirm') %>)</span>
+                <%= f.label t('profil.current_password') %> :
+                <br/><span class="legend">(<%= t('profil.need_pwd_to_confirm') %>)</span>
               </div>
               <div class="form-right">
                 <%= f.password_field :current_password, autocomplete: 'off' %>
@@ -105,9 +107,10 @@
         <% end %>
       </div>
 
-      <h3>Cancel my account</h3>
-
-      <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: {confirm: "Are you sure?"}, method: :delete %></p>
+      <div class="form-header">
+        <h2></h2>
+      </div>
+      <%= button_to t('profil.cancel_account'), registration_path(resource_name), class: 'button-delete', data: {confirm: t('profil.cancel_confirm')}, method: :delete %>
   <% end %>
 
 </div>

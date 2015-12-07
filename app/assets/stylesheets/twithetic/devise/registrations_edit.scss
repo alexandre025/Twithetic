@@ -1,0 +1,24 @@
+#registrations_edit {
+
+  form {
+    .actions {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .button-delete {
+      display: block;
+      border: none;
+      outline: none;
+      color: $blue_lighter;
+      background-color: transparent;
+      margin: 20px auto;
+      font-size: 14px;
+      cursor: pointer;
+
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+}

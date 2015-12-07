@@ -25,63 +25,66 @@
   padding: 30px 115px;
 }
 
-form.form-default {
+form {
+  &.form-default {
 
-  .field_with_errors {
-    width: 100%;
+    .field_with_errors {
+      width: 100%;
 
-    input{
-      border: 1px solid $pink !important;
+      input {
+        border: 1px solid $pink !important;
+      }
     }
-  }
 
-  .field {
-    min-height: 45px;
-    display: block;
-    line-height: 45px;
-    margin-bottom: 15px;
-  }
-
-  .form-left {
-    height: inherit;
-    width: 190px;
-    float: left;
-    text-align: left;
-
-    .legend{
+    .field {
+      min-height: 45px;
       display: block;
-      font-size: 12px;
-      line-height: 1.2;
-      font-style: italic;
-      position: relative;
-      top: -10px;
+      line-height: 45px;
+      margin-bottom: 15px;
     }
-  }
 
-  .form-right {
-    width: 415px;
-    float: left;
-  }
+    .form-left {
+      height: inherit;
+      width: 190px;
+      float: left;
+      text-align: left;
 
-  input[type=text],
-  input[type=email],
-  input[type=password] {
-    width: inherit;
-    height: 40px;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    padding: 20px;
-    color: $blue_light;
-    font-weight: bold;
-  }
+      .legend {
+        display: block;
+        font-size: 12px;
+        line-height: 1.2;
+        font-style: italic;
+        position: relative;
+        top: -10px;
+      }
+    }
 
-  textarea {
-    @extend input[type=text];
-    height: 100px;
-  }
+    .form-right {
+      width: 415px;
+      float: left;
+    }
 
-  .actions {
-    text-align: right;
+    input[type=text],
+    input[type=email],
+    input[type=password] {
+      width: inherit;
+      height: 40px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      padding: 20px;
+      color: $blue_light;
+      font-weight: bold;
+    }
+
+    textarea {
+      @extend input[type=text];
+      resize: none;
+      height: 100px;
+    }
+
+    .actions {
+      text-align: right;
+    }
   }
 }
