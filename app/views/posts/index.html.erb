@@ -1,6 +1,13 @@
-<div class="infinite-scroll">
-  <% @collection.each do |p| %>
-      <%= render partial: 'shared/post_view', locals: {post: p} %>
-      <%= link_to_next_page @collection, 'Next page', class: 'infinite-scroll infinite-scroll-item', params: params unless @collection.last_page? %>
-  <% end %>
+<div class="container">
+  <div class="sub-container-left">
+    <div class="infinite-scroll">
+      <% @collection.each do |p| %>
+          <%= render partial: 'shared/post_view', locals: {post: p} %>
+          <%= link_to_next_page @collection, 'Next page', class: 'infinite-scroll infinite-scroll-item', params: params unless @collection.last_page? %>
+      <% end %>
+    </div>
+  </div>
+  <div class="sub-container-right">
+    <%= render partial: 'shared/hashtag_box' %>
+  </div>
 </div>

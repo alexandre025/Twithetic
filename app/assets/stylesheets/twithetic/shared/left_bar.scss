@@ -1,0 +1,31 @@
+.left-bar-item {
+
+  background-color: $white;
+  border-radius: 10px;
+  box-shadow: $box-shadow-stack;
+
+  h2{
+    font-size: 18px;
+    color: $blue_light;
+    padding: 20px;
+    font-weight: 400;
+    border-bottom: 1px solid $grey-light;
+  }
+
+  &.hashtag-trend-box {
+    margin: 20px auto;
+
+    padding-bottom: 20px;
+
+    ul{
+      a{
+        color: $black;
+        text-decoration: none;
+        li{
+          list-style: none;
+        }
+      }
+    }
+  }
+}
+

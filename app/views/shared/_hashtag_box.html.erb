@@ -1,6 +1,10 @@
-<div class="hashtag-trend-box">
-  <%= content_tag 'span', t('trend_hashtags') %>
+<div class="hashtag-trend-box left-bar-item">
+  <%= content_tag 'h2', t('trend_hashtags') %>
   <% @trend_hashtags.each do |h| %>
-      <%= link_to "##{h.name}", hashtag_path(hashtag: h.name) %>
+      <ul>
+        <%= link_to hashtag_path(hashtag: h.name) do %>
+            <li><%= "##{h.name}" %></li>
+        <% end %>
+      </ul>
   <% end %>
 </div>
