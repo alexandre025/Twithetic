@@ -1,44 +1,51 @@
 .single-post-view {
 
-  &.with-image {
-
+  .image-layout {
+    width: 100%;
+    height: 160px;
+    background: no-repeat center center;
+    background-size: cover;
+    border-radius: 10px 10px 0px 0px;
   }
 
   box-shadow: $box-shadow-stack;
   position: relative;
-  padding: 30px;
   background-color: $white;
   border-radius: 10px;
   width: 620px;
   margin: 20px auto;
 
-  .post-user-image {
-    float: left;
-    border-radius: 50%;
-  }
+  .post-contents {
+    position: relative;
+    padding: 30px;
+    .post-user-image {
+      float: left;
+      border-radius: 50%;
+    }
 
-  .right {
-    padding-left: 70px;
-    a {
-      text-decoration: none;
-      color: $blue_light;
-    }
-    .post-user {
-      font-weight: 700;
-    }
-    .post-username {
-    }
-    .post-created_at {
-      float: right;
-      color: $grey-light;
-    }
-    .post-message {
-      margin-top: 15px;
-      word-break: break-all;
-    }
-    .post-retweeted {
-      font-style: italic;
-      font-size: 12px;
+    .right {
+      padding-left: 70px;
+      a {
+        text-decoration: none;
+        color: $blue_light;
+      }
+      .post-user {
+        font-weight: 700;
+      }
+      .post-username {
+      }
+      .post-created_at {
+        float: right;
+        color: $grey-light;
+      }
+      .post-message {
+        margin-top: 15px;
+        word-break: break-all;
+      }
+      .post-retweeted {
+        font-style: italic;
+        font-size: 12px;
+      }
     }
   }
 
@@ -88,7 +95,7 @@
           }
         }
       }
-      &.retweet-form{
+      &.retweet-form {
         img {
           display: none;
         }
@@ -105,4 +112,14 @@
     }
   }
 
+}
+
+#posts_show{
+  .image-layout {
+    height: inherit;
+    img {
+      max-width: 100%;
+      border-radius: 10px 10px 0px 0px;
+    }
+  }
 }
