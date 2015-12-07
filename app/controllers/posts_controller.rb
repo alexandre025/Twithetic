@@ -19,15 +19,6 @@ class PostsController < ApplicationController
     redirect_to request.referrer || user_path(current_user)
   end
 
-  def update
-    if update_attribute(@object, permitted_attributes)
-      flash.now[:notice] = 'update_post_success'
-      redirect_to
-    else
-
-    end
-  end
-
   def destroy
     @object.destroy
     flash.now[:notice] = 'delete_post_success'
@@ -67,7 +58,7 @@ class PostsController < ApplicationController
     end
 
     def load_collection
-        user_ids = current_user.following_users.pluck(:id)
+        user_ids = current_user.following_users.pluck(:id) << current_user.id
         @collection = Post.where(user: user_ids)
     end
 
