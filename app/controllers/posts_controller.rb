@@ -12,19 +12,18 @@ class PostsController < ApplicationController
   def create
     @object = Post.new(permitted_attributes)
     if @object.save
-      redirect_to after_create_or_destroy_path, notice: 'new_post_success'
+      redirect_to after_create_or_destroy_path, notice: t('notif.notice.new_post_success')
     else
-      redirect_to after_create_or_destroy_path, notice: 'new_post_error'
+      redirect_to after_create_or_destroy_path, error: t('notif.error.new_post_error')
     end
   end
 
   def destroy
-    if current_user can? :delete
-      @object
+    if can? :delete, @object
       @object.destroy
-      redirect_to after_create_or_destroy_path, notice: 'delete_post_success'
+      redirect_to after_create_or_destroy_path, notice: t('notif.notice.delete_post_success')
     else
-      redirect_to after_create_or_destroy_path, notice: 'delete_post_unauthorized'
+      redirect_to after_create_or_destroy_path, error: t('notif.error.delete_post_unauthorized')
     end
   end
 

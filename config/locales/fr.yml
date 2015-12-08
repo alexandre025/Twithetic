@@ -73,3 +73,11 @@ fr:
   password_confirm: "Confirmer le mot de passe"
   chars_min: "charactères minimums"
   username: "Nom d'utilisateur"
+
+  notif:
+    notice:
+      new_post_success: "Tweet ajouté avec succès !"
+      delete_post_success: "Vous avez supprimé votre tweet."
+    error:
+      new_post_error: "Ooops... une erreur est survenue pendant l'ajout de votre tweet !"
+      delete_post_unauthorized: "Vous n'avez l'authorisation de supprimer ce tweet !"
