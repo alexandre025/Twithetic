@@ -8,7 +8,7 @@ RSpec.describe UsersController, :type => :controller do
   describe 'GET show' do
     it 'show user profile page' do
       user = create(:user)
-      get :show, id: user.id.to_s
+      get :show, id: user.id.to_s, locale: :en
 
       expect(response).to have_http_status(:success)
       expect(response.body).to include('<span class="user-username">@' + user.username + '</span>')
@@ -17,20 +17,25 @@ RSpec.describe UsersController, :type => :controller do
 
   describe Devise::RegistrationsController, :type => :controller do
     it 'show edit user profile' do
-      get :edit
+      get :edit, locale: :en
+
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe Devise::SessionsController, :type => :controller do
+    it 'show login page for unlogin user' do
+      sign_out @current_user
+      get :new, locale: :en
 
       expect(response).to have_http_status(:success)
     end
 
-    # it 'update user profile' do
-    #   last_name = Faker::Name.last_name
-    #   first_name = Faker::Name.first_name
-    #   post :update, user: {firstname: first_name, lastname: last_name}
-    #
-    #   expect(response).to have_http_status(:success)
-    #   expect(@current_user.firstname).to eq(first_name)
-    #   expect(@current_user.lastname).to eq(last_name)
-    # end
+    it 'redirect login user when visiting login page' do
+      get :new, locale: :en
+
+      expect(response).to have_http_status(:found)
+    end
   end
 
 end
