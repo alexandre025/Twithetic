@@ -21,16 +21,6 @@ RSpec.describe UsersController, :type => :controller do
 
       expect(response).to have_http_status(:success)
     end
-
-    # it 'update user profile' do
-    #   last_name = Faker::Name.last_name
-    #   first_name = Faker::Name.first_name
-    #   post :update, user: {firstname: first_name, lastname: last_name}
-    #
-    #   expect(response).to have_http_status(:success)
-    #   expect(@current_user.firstname).to eq(first_name)
-    #   expect(@current_user.lastname).to eq(last_name)
-    # end
   end
 
 end
