@@ -1,4 +1,10 @@
 fr:
+  routes:
+    posts: tweets
+    users: utilisateurs
+    search: recherche
+    edit: modifier
+
   posts:
     actions:
       create: Tweeter
@@ -42,17 +48,28 @@ fr:
     follow_count: "Abonnements"
     posts: "Tweets"
   profil:
-    firstname: "Prénom"
     banner: "Arrière-plan"
     image: "Photo de profil"
-    lastname: "Nom"
     bio: "Biographie courte"
     actions:
       update: "Enregistrer les modifications"
     need_pwd_to_confirm: "nous avons besoins de votre mot de passe actuel pour valider vos modifications"
     password: "Nouveau mot de passe"
-    password_confirm: "Confirmez le mot de passe"
     current_password: "Mot de passe actuel"
     password_leave_blank: "laissez vide si vous ne souhaitez pas le changer"
     cancel_account: "Je souhaite supprimer mon compte"
     cancel_confirm: "Confirmer la suppression de votre compte ?"
+  remember_me: "Se souvenir de moi"
+  password: "Mot de passe"
+  email: "Email"
+  login: "Connexion"
+  password_confirm: "Confirmez le mot de passe"
+  firstname: "Prénom"
+  lastname: "Nom"
+  signup: Inscription
+  forgot_pwd: "Mot de passe oublié ?"
+  didnt_receive_conf: "Didn't receive confirmation instructions?"
+  didnt_receive_unlock: "Didn't receive unlock instructions?"
+  password_confirm: "Confirmer le mot de passe"
+  chars_min: "charactères minimums"
+  username: "Nom d'utilisateur"

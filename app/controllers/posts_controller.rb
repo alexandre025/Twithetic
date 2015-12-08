@@ -12,17 +12,20 @@ class PostsController < ApplicationController
   def create
     @object = Post.new(permitted_attributes)
     if @object.save
-      flash.now[:notice] = 'new_post_success'
+      redirect_to after_create_or_destroy_path, notice: 'new_post_success'
     else
-      flash.now[:error] = 'new_post_error'
+      redirect_to after_create_or_destroy_path, notice: 'new_post_error'
     end
-    redirect_to request.referrer || user_path(current_user)
   end
 
   def destroy
-    @object.destroy
-    flash.now[:notice] = 'delete_post_success'
-    redirect_to user_path(current_user)
+    if current_user can? :delete
+      @object
+      @object.destroy
+      redirect_to after_create_or_destroy_path, notice: 'delete_post_success'
+    else
+      redirect_to after_create_or_destroy_path, notice: 'delete_post_unauthorized'
+    end
   end
 
   def show
@@ -60,6 +63,10 @@ class PostsController < ApplicationController
 
   def permitted_attributes
     params.require(:post).permit(:user_id, :message, image_attributes: [:attachment])
+  end
+
+  def after_create_or_destroy_path
+    request.referrer || user_path(current_user)
   end
 
 end

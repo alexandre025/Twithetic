@@ -71,6 +71,9 @@ gem 'kaminari'
 # Search
 gem 'ransack'
 
+# Routes translations
+gem 'route_translator'
+
 # Authorize
 gem 'cancancan', '~> 1.10'
 

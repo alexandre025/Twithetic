@@ -8,16 +8,16 @@ class CommentsController < ApplicationController
     @object = Comment.new(permitted_attributes)
     @object.post_id = params[:post_id]
     if @object.save
-      flash.now[:notice] = 'add_comment_success'
+      flash[:notice] = 'add_comment_success'
     else
-      flash.now[:error] = 'add_comment_error'
+      flash[:error] = 'add_comment_error'
     end
     redirect_to post_path(@object.post)
   end
 
   def destroy
     @object.destroy
-    flash.now[:notice] = 'delete_comment_success'
+    flash[:notice] = 'delete_comment_success'
     redirect_to post_path(@object.post)
   end
 

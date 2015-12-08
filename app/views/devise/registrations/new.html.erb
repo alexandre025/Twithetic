@@ -11,7 +11,7 @@
 
       <div class="field">
         <div class="form-left">
-          <%= f.label :email %>
+          <%= f.label t('email') %> :
         </div>
         <div class="form-right">
           <%= f.email_field :email, autofocus: true %>
@@ -19,10 +19,10 @@
       </div>
 
       <div class="field">
-        <div class="form-left" style="line-height: 25px;">
-          <%= f.label :password %>
+        <div class="form-left">
+          <%= f.label t('password') %> :<br>
           <% if @minimum_password_length %>
-            <label>(<%= @minimum_password_length %> characters minimum)</label>
+            <span class="legend">(<%= @minimum_password_length %> <%= t('chars_min') %>)</span>
           <% end %>
         </div>
         <div class="form-right">
@@ -32,7 +32,7 @@
 
       <div class="field">
         <div class="form-left">
-          <%= f.label :password_confirmation %>
+          <%= f.label t('password_confirm') %> :
         </div>
         <div class="form-right">
           <%= f.password_field :password_confirmation, autocomplete: "off" %>
@@ -41,7 +41,7 @@
 
       <div class="field">
         <div class="form-left">
-          <%= f.label :username %>
+          <%= f.label t('username') %> :
         </div>
         <div class="form-right">
           <%= f.text_field :username %>
@@ -50,7 +50,7 @@
 
       <div class="field">
         <div class="form-left">
-          <%= f.label :firstname %>
+          <%= f.label t('firstname') %> :
         </div>
         <div class="form-right">
           <%= f.text_field :firstname %>
@@ -59,7 +59,7 @@
 
       <div class="field">
         <div class="form-left">
-          <%= f.label :lastname %>
+          <%= f.label t('lastname') %> :
         </div>
         <div class="form-right">
           <%= f.text_field :lastname %>
@@ -67,7 +67,7 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "Sign up", class: 'default-btn' %>
+        <%= f.submit t('signup'), class: 'default-btn' %>
       </div>
     <% end %>
 

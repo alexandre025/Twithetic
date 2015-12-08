@@ -8,7 +8,7 @@
       <div class="form-content">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put, class: 'form-default'}) do |f| %>
 
-            <%= devise_error_messages! %>
+            <%#= devise_error_messages! %>
 
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                 <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
@@ -38,7 +38,7 @@
 
             <div class="field">
               <div class="form-left">
-                <%= f.label t('profil.firstname') %> :
+                <%= f.label t('firstname') %> :
               </div>
               <div class="form-right">
                 <%= f.text_field :firstname %>
@@ -47,7 +47,7 @@
 
             <div class="field">
               <div class="form-left">
-                <%= f.label t('profil.lastname') %> :
+                <%= f.label t('lastname') %> :
               </div>
               <div class="form-right">
                 <%= f.text_field :lastname %>
@@ -67,7 +67,7 @@
 
             <div class="field">
               <div class="form-left">
-                <%= f.label t('profil.password') %> : <br/><span class="legend">(<%= t('profil.password_leave_blank') %>
+                <%= f.label t('password') %> : <br/><span class="legend">(<%= t('password_leave_blank') %>
                 )</span>
               </div>
               <div class="form-right">
@@ -79,7 +79,7 @@
 
             <div class="field">
               <div class="form-left">
-                <%= f.label t('profil.password_confirm') %> :
+                <%= f.label t('password_confirm') %> :
               </div>
               <div class="form-right">
                 <%= f.password_field :password_confirmation, autocomplete: 'off' %>
