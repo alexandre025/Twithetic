@@ -13,7 +13,7 @@ RSpec.describe PostsController, :type => :controller do
       end
       @current_user.follow(user)
 
-      get :index
+      get :index, locale: :en
 
       expect(response).to have_http_status(:success)
       user.posts.each do |post|
@@ -24,9 +24,9 @@ RSpec.describe PostsController, :type => :controller do
 
   describe 'POST create' do
     it 'create a new tweet' do
-      get :index
+      get :index, locale: :en
       sentence = Faker::Lorem.sentence
-      post :create, post: {user_id: @current_user.id, message: sentence}
+      post :create, post: {user_id: @current_user.id, message: sentence}, locale: :en
 
       expect(response).to have_http_status(:found)
     end
