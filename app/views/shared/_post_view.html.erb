@@ -25,7 +25,7 @@
         <% if post.parent %>
             <div class="post-retweeted"><%= t 'posts.retweeted_from' %> <%= link_to "@#{post.parent.user.username}", user_path(post.parent.user) %></div>
         <% end %>
-        <%= content_tag :div, post.message.html_safe, class: 'post-message' %>
+        <%= content_tag :div, detect_hashtags(post.message.html_safe), class: 'post-message' %>
       </div>
     </div>
   </div>

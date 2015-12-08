@@ -6,7 +6,6 @@ class SearchController < ApplicationController
   before_action :add_page_to_params, only: [:hashtag]
 
   def search_results
-
   end
 
   def hashtag
