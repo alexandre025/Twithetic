@@ -81,3 +81,5 @@ fr:
     error:
       new_post_error: "Ooops... une erreur est survenue pendant l'ajout de votre tweet !"
       delete_post_unauthorized: "Vous n'avez l'authorisation de supprimer ce tweet !"
+  loading: "Chargement..."
+  confirm_post_delete: "Vouslez vous vraiment supprimer votre tweet ?"

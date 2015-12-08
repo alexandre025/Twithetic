@@ -47,6 +47,14 @@
 
   </div>
 
+  <% if can? :destroy, post %>
+      <div class="delete-post">
+        <%= form_for post, method: :delete, data: { confirm: t('confirm_post_delete') } do %>
+            <%= image_submit_tag 'delete_grey.png' %>
+        <% end %>
+      </div>
+  <% end %>
+
   <%#= render partial: 'shared/comment_form', locals: {post: post}  %>
 
 </div>

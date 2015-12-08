@@ -1,5 +1,4 @@
 <% count = post.try(:parent).try(:count_retweet) || post.count_retweet %>
-<% puts count %>
 <div class="retweet-button">
   <% if user_signed_in? %>
       <% if current_user == post.user %>

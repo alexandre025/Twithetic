@@ -9,7 +9,7 @@
             <%= f.fields_for :image do |i| %>
                 <%= i.file_field :attachment %>
             <% end %>
-            <%= f.submit t('posts.actions.create'), disabled: true, class: 'default-btn' %>
+            <%= f.submit t('posts.actions.create'), data: { 'disable-with': t('loading') }, class: 'default-btn' %>
             <%= content_tag 'span', '140', class: 'new-tweet-count' %>
         <% end %>
         <div id="new-post-close">

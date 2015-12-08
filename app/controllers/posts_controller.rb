@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :new, :update, :create, :delete, :like, :retweet]
+  before_action :authenticate_user!, only: [:index, :new, :update, :create, :destroy, :like, :retweet]
 
   before_action :load_collection, only: [:index]
-  before_action :load_resource, only: [:update, :delete, :show]
+  before_action :load_resource, only: [:update, :destroy, :show]
   before_action :add_page_to_params, only: [:index, :user]
 
   def index
@@ -19,8 +19,8 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    if can? :delete, @object
-      @object.destroy
+    if can? :destroy, @object
+      @object.destroy!
       redirect_to after_create_or_destroy_path, notice: t('notif.notice.delete_post_success')
     else
       redirect_to after_create_or_destroy_path, error: t('notif.error.delete_post_unauthorized')
