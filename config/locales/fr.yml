@@ -5,6 +5,39 @@ fr:
     search: recherche
     edit: modifier
 
+  activerecord:
+    models:
+      user:
+        one: utilisateur
+        other: utilisateurs
+    attributes:
+      user:
+        email: Email
+        password: Mot de passe
+        password_confirmation: Confirmer le mot de passe
+        username: "Nom d'utilisateur"
+        firstname: Prénom
+        lastname: Nom
+
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: doit être rempli
+              taken: est déjà pris
+            password:
+              blank: doit être rempli
+            password_confirmation:
+              confirmation: doit être égal au mot de passe
+            username:
+              blank: doit être rempli
+              taken: est déjà pris
+            firstname:
+              blank: doit être rempli
+            lastname:
+              blank: doit être rempli
+
   posts:
     actions:
       create: Tweeter
