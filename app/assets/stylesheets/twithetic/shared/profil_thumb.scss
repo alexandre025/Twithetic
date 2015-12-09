@@ -1,6 +1,18 @@
 .sub-container-left {
   .profil-thumb {
-    margin: 20px 14px;
+    margin: 20px 14px 0px;
+  }
+}
+
+.profil-infinite-scroll-container {
+  .jscroll-inner, .jscroll-added {
+    display: inline;
+  }
+}
+
+.sub-container-right {
+  .profil-thumb {
+    margin: 20px auto 0;
   }
 }
 

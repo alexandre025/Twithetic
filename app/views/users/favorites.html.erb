@@ -1,4 +1,6 @@
-<div class="infinite-scroll">
+<%= render partial: 'users/user_header' %>
+
+<div class="infinite-scroll-container">
   <% @collection.each do |p| %>
       <%= render partial: 'shared/post_view', locals: {post: p} %>
       <%= link_to_next_page @collection, 'Next page', class: 'infinite-scroll infinite-scroll-item', params: params unless @collection.last_page? %>

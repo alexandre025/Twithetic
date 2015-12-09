@@ -1,5 +1,5 @@
 <% if user_signed_in? and user != current_user %>
-    <div class="profil-thumb" id="profil_<%= user.id %>" style="background: url('<%= user.banner.attachment.url(:thumb) %>');">
+    <div class="profil-thumb profil-infinite-scroll-item" id="profil_<%= user.id %>" style="background: url('<%= user.banner.attachment.url(:thumb) %>');">
       <%= image_tag user.image.attachment.url(:bigger_thumb), class: 'profil-image' %>
       <%= content_tag :span, "#{user.firstname} #{user.lastname}", class: 'profil-name' %>
       <%= link_to "@#{user.username}", user_path(user), class: 'profil-link' %>

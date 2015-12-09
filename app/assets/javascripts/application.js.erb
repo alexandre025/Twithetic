@@ -19,10 +19,16 @@
 
 Turbolinks.enableProgressBar();
 
-$(document).on('ready page:load',function(e){
-    $('.infinite-scroll').jscroll({
-        loadingHtml: '<%= image_tag 'loader.gif', class: 'loader' %>',
-        nextSelector: 'a.infinite-scroll:last',
-        contentSelector: '.infinite-scroll-item'
-    });
+$(document).on('ready page:load', function (e) {
+  $('.infinite-scroll-container').jscroll({
+    loadingHtml: '<%= image_tag 'loader.gif', class: 'loader' %>',
+    nextSelector: 'a.infinite-scroll:last',
+    contentSelector: '.infinite-scroll-item'
+  });
+
+  $('.profil-infinite-scroll-container').jscroll({
+    loadingHtml: '<%= image_tag 'loader.gif', class: 'loader' %>',
+    nextSelector: 'a.infinite-scroll:last',
+    contentSelector: '.profil-infinite-scroll-item'
+  });
 });

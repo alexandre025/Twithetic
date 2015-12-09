@@ -10,9 +10,12 @@
       <div class="sub-container-left no-results"><%= t 'search.no_results.tweets' %></div>
   <% else %>
       <div class="sub-container-left">
-        <% @posts.each do |p| %>
-            <%= render partial: 'shared/post_view', locals: {post: p} %>
-        <% end %>
+        <div class="infinite-scroll-container">
+          <% @posts.each do |p| %>
+              <%= render partial: 'shared/post_view', locals: {post: p} %>
+              <%= link_to_next_page @posts, 'Next page', class: 'infinite-scroll infinite-scroll-item', params: params unless @posts.last_page? %>
+          <% end %>
+        </div>
       </div>
   <% end %>
 

@@ -1,0 +1,48 @@
+<div class="user-cover" style="background-image: url('<%= @object.banner.attachment.url(:profil) %>'), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));">
+  <div class="container">
+
+    <%= image_tag @object.image.attachment.url(:regular), class: 'user-image' %>
+
+    <%= content_tag 'span', "#{@object.firstname} #{@object.lastname}", class: 'user-firstname-lastname' %>
+
+    <%= content_tag 'span', "@#{@object.username}", class: 'user-username' %>
+
+    <%= content_tag 'span', @object.bio, class: 'user-bio' %>
+
+    <% if user_signed_in? %>
+        <% if current_user == @object %>
+            <a href="<%= edit_user_registration_path %>" class="default-btn edit"><%= inline_svg 'edit_compte.svg' %><%= t('users.actions.edit') %></a>
+        <% elsif current_user.following?(@object) %>
+            <%= link_to t('users.actions.unfollow'), user_follow_path(@object.id), class: 'active unfollow default-btn' %>
+            <%= link_to t('users.actions.follow'), user_follow_path(@object.id), class: 'follow default-btn' %>
+        <% else %>
+            <%= link_to t('users.actions.unfollow'), user_follow_path(@object.id), class: 'unfollow default-btn' %>
+            <%= link_to t('users.actions.follow'), user_follow_path(@object.id), class: 'active follow default-btn' %>
+        <% end %>
+    <% end %>
+
+    <div class="bottom">
+      <ul>
+        <a href="<%= user_path(@object) %>">
+          <li><span class="number"><%= @object.posts.count %></span><span class="label"><%= t('user.posts') %></span>
+          </li>
+        </a>
+        <a href="<%= following_user_path(@object) %>">
+          <li>
+            <span class="number"><%= @object.following_users_count %></span><span class="label"><%= t('user.follow_count') %></span>
+          </li>
+        </a>
+        <a href="<%= followers_user_path(@object) %>">
+          <li>
+            <span class="number"><%= @object.followers_count %></span><span class="label"><%= t('user.followers_count') %></span>
+          </li>
+        </a>
+        <a href="<%= favorites_user_path(@object) %>">
+          <li>
+            <span class="number"><%= @object.following_posts_count %></span><span class="label"><%= t('user.liked') %></span>
+          </li>
+        </a>
+      </ul>
+    </div>
+  </div>
+</div>

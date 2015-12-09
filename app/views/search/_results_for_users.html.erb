@@ -11,9 +11,12 @@
       <div class="sub-container-left no-results"><%= t 'search.no_results.users' %></div>
   <% else %>
       <div class="sub-container-left">
-        <% @users.each do |u| %>
-            <%= render partial: 'shared/profil_thumb', locals: {user: u} %>
-        <% end %>
+        <div class="profil-infinite-scroll-container">
+          <% @users.each do |u| %>
+              <%= render partial: 'shared/profil_thumb', locals: { user: u } %>
+              <%= link_to_next_page @users, 'Next page', class: 'infinite-scroll profil-infinite-scroll-item', params: params unless @users.last_page? %>
+          <% end %>
+        </div>
       </div>
   <% end %>
 

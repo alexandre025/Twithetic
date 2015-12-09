@@ -6,6 +6,8 @@ class SearchController < ApplicationController
   before_action :add_page_to_params, only: [:hashtag]
 
   def search_results
+    @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(10) if @posts
+    @users = Kaminari.paginate_array(@users).page(params[:page]).per(10) if @users
   end
 
   def hashtag
