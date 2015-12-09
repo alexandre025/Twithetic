@@ -21,7 +21,7 @@ Turbolinks.enableProgressBar();
 
 $(document).on('ready page:load',function(e){
     $('.infinite-scroll').jscroll({
-        loadingHtml: "<span>LOADING</span>",
+        loadingHtml: '<%= image_tag 'loader.gif' %>',
         nextSelector: 'a.infinite-scroll:last',
         contentSelector: '.infinite-scroll-item'
     });
