@@ -1,6 +1,6 @@
 require 'raven'
 
 Raven.configure do |config|
-  config.dsn = 'https://ecb1d92a0e894eb0b8a54a5cd6336082:7cd3d74492f94524b46a9375c25fb64e@app.getsentry.com/60697'
+  config.dsn = 'https://f4aeb6abd6924b1598c376b08e063d2f:6c422bc3ba9a40bba54df842274ecc83@app.getsentry.com/60882'
   config.environments = %w[ production ]
 end
