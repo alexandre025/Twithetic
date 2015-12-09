@@ -1,6 +1,7 @@
 <nav class="results">
   <div class="container">
-    <%= link_to t('search.tweets'), search_path(q: params[:q]) %> | <%= content_tag 'span', t('search.results', count: @users.count.to_s, for: params[:q]) %>
+    <%= link_to t('search.tweets'), search_path(q: params[:q]) %>
+    | <%= content_tag 'span', t('search.results', count: @users.count.to_s, for: params[:q]) %>
   </div>
 </nav>
 
@@ -10,7 +11,9 @@
       <div class="sub-container-left no-results"><%= t 'search.no_results.users' %></div>
   <% else %>
       <div class="sub-container-left">
-
+        <% @users.each do |u| %>
+            <%= render partial: 'shared/profil_thumb', locals: {user: u} %>
+        <% end %>
       </div>
   <% end %>
 

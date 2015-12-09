@@ -8,12 +8,29 @@
     background: no-repeat fixed center;
     background-size: cover;
 
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 100%;
+      height: 460px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+      z-index: 2;
+    }
+
     .container {
       width: 480px;
       height: 100%;
       padding-top: 30px;
       position: relative;
       text-align: center;
+
+      img,span,a{
+        position: relative;
+        z-index: 3;
+      }
 
       img {
         width: 130px;
@@ -76,6 +93,7 @@
         background-color: $background_light;
         border-radius: 10px;
         box-shadow: -3px 4px 10px 0px rgba(000, 000, 000, 0.05);
+        z-index: 3;
 
         ul {
           margin: 0;

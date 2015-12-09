@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   before_action :add_page_to_params, only: [:index, :user]
 
   def index
+    @users = select_firsts_user(Post.all, 2)
     @collection = Kaminari.paginate_array(@collection).page(params[:page]).per(10)
   end
 

@@ -17,10 +17,8 @@
   <% end %>
 
   <div class="sub-container-right">
-    <% if @users %>
-        <% @users.first(2).each do |u| %>
-          <%= render partial: 'shared/user_box', locals: { user: u } %>
-        <% end %>
+    <% @users.each do |u| %>
+        <%= render partial: 'shared/profil_thumb', locals: {user: u} %>
     <% end %>
 
     <%= render partial: 'shared/hashtag_box' %>

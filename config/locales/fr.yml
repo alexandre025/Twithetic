@@ -111,6 +111,8 @@ fr:
     notice:
       new_post_success: "Tweet ajouté avec succès !"
       delete_post_success: "Vous avez supprimé votre tweet."
+      success_unfollow: "Vous ne suivez plus %{user}"
+      success_follow: "Vous suivez désormais %{user}"
     error:
       new_post_error: "Ooops... une erreur est survenue pendant l'ajout de votre tweet !"
       delete_post_unauthorized: "Vous n'avez l'authorisation de supprimer ce tweet !"

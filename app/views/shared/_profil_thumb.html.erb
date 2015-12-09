@@ -1,0 +1,15 @@
+<% if user_signed_in? and user != current_user %>
+    <div class="profil-thumb" id="profil_<%= user.id %>" style="background: url('<%= user.banner.attachment.url(:thumb) %>');">
+      <%= image_tag user.image.attachment.url(:bigger_thumb), class: 'profil-image' %>
+      <%= content_tag :span, "#{user.firstname} #{user.lastname}", class: 'profil-name' %>
+      <%= link_to "@#{user.username}", user_path(user), class: 'profil-link' %>
+
+      <% if current_user.following?(user) %>
+          <%= link_to t('users.actions.unfollow'), user_follow_path(user), class: 'active unfollow default-btn' %>
+          <%= link_to t('users.actions.follow'), user_follow_path(user), class: 'follow default-btn' %>
+      <% else %>
+          <%= link_to t('users.actions.unfollow'), user_follow_path(user), class: 'unfollow default-btn' %>
+          <%= link_to t('users.actions.follow'), user_follow_path(user), class: 'active follow default-btn' %>
+      <% end %>
+    </div>
+<% end %>

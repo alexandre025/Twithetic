@@ -8,6 +8,10 @@
     </div>
   </div>
   <div class="sub-container-right">
+    <% @users.each do |u| %>
+        <%= render partial: 'shared/profil_thumb', locals: {user: u} %>
+    <% end %>
+
     <%= render partial: 'shared/hashtag_box' %>
   </div>
 </div>

@@ -11,17 +11,17 @@ class SearchController < ApplicationController
   def hashtag
     @posts = Post.ransack(message_cont: params[:hashtag]).result
     @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(10)
+    @users = select_firsts_user(@posts, 2)
   end
 
   private
-    def load_resources
-      if params.has_key? :q
-        @posts = Post.ransack(message_cont: params[:q]).result
-        @users = User.ransack(username_or_firstname_or_lastname_cont: params[:q]).result
-      else
-        @users = User.all
-        @posts = Post.all
-      end
+  def load_resources
+    params.merge({q: ''}) unless params.has_key? :q
+    if params.has_key? :f
+      @users = User.ransack(username_or_firstname_or_lastname_cont: params[:q]).result
+    else
+      @posts = Post.ransack(message_cont: params[:q]).result
+      @users = select_firsts_user(@posts, 2)
     end
-
+  end
 end

@@ -1,7 +1,7 @@
 class Asset::UserBanner < Asset
 
   has_attached_file :attachment,
-                    styles: { thumb: '400x400#', profil: '1600x400>' },
+                    styles: { thumb: '280x230>', profil: '1600x400>' },
                     default_style: :thumb,
                     default_url: '/default/users/banners/:style/noimage.png',
                     url: '/twithetic/users/:id/banners/:style/:basename.:extension',

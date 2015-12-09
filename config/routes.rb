@@ -22,6 +22,10 @@ Rails.application.routes.draw do
 
     resources :users, only: [:show] do
       get 'follow' => 'users#follow'
+
+      get 'following' => 'users#following', on: :member
+      get 'followers' => 'users#followers', on: :member
+      get 'favorites' => 'users#favorites', on: :member
     end
   end
   # Routes for errors_controller
