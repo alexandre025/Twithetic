@@ -1,6 +1,7 @@
-<% if flash[:error] || flash[:notice] %>
+<% if flash[:error] || flash[:notice] || flash[:alert] %>
     <div class="notifications-container">
       <%= content_tag 'div', flash[:error], class: 'error' if flash[:error] %>
+      <%= content_tag 'div', flash[:alert], class: 'error' if flash[:alert] %>
       <%= content_tag 'div', flash[:notice], class: 'notice' if flash[:notice] %>
     </div>
 <% end %>
