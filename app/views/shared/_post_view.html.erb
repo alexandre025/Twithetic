@@ -1,15 +1,16 @@
 <% single = (controller_name == 'posts' and action_name == 'show') ? true : false %>
+<% image = post.parent ? post.parent.image : post.image %>
 
-<div id="post_<%= post.id %>" class="single-post-view infinite-scroll-item <%= 'with-image' if post.image %>" data-hook="single-post-view">
+<div id="post_<%= post.id %>" class="single-post-view infinite-scroll-item <%= 'with-image' if image %>" data-hook="single-post-view">
 
-  <% if post.image %>
+  <% if image %>
       <% if single %>
           <div class="image-layout">
-            <%= image_tag post.image.attachment.url(), class: 'post-image' %>
+            <%= image_tag image.attachment.url(), class: 'post-image' %>
           </div>
       <% else %>
           <a href="<%= post_path(post) %>">
-            <div class="image-layout" style="background-image: url('<%= post.image.attachment.url() %>');"></div>
+            <div class="image-layout" style="background-image: url('<%= image.attachment.url() %>');"></div>
           </a>
       <% end %>
 
@@ -19,8 +20,10 @@
 
     <div class="right">
       <div class="post-infos">
-        <span class="post-user"><%= "#{post.user.firstname} #{post.user.lastname}" %></span>
-        <span class="post-username"><%= link_to "@#{post.user.username}", user_path(post.user) %></span>
+        <%= link_to user_path(post.user) do %>
+            <span class="post-user"><%= "#{post.user.firstname} #{post.user.lastname}" %></span>
+            <span class="post-username"><%= "@#{post.user.username}" %></span>
+        <% end %>
         <span class="post-created_at"><%= post.created_at.strftime('%d/%m/%Y') %></span>
         <% if post.parent %>
             <div class="post-retweeted"><%= t 'posts.retweeted_from' %> <%= link_to "@#{post.parent.user.username}", user_path(post.parent.user) %></div>
@@ -49,7 +52,7 @@
 
   <% if can? :destroy, post %>
       <div class="delete-post">
-        <%= form_for post, method: :delete, data: { confirm: t('confirm_post_delete') } do %>
+        <%= form_for post, method: :delete, data: {confirm: t('confirm_post_delete')} do %>
             <%= image_submit_tag 'delete_grey.png' %>
         <% end %>
       </div>
