@@ -7,7 +7,7 @@
 
     <%= content_tag 'span', "@#{@object.username}", class: 'user-username' %>
 
-    <%= content_tag 'span', @object.bio, class: 'user-bio' %>
+    <%= content_tag 'span', detect_hashtags(@object.bio.html_safe), class: 'user-bio' if @object.bio %>
 
     <% if user_signed_in? %>
         <% if current_user == @object %>
