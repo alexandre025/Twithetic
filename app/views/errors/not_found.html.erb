@@ -1,1 +1,7 @@
-<h1>ERROR 404</h1>
+<div id="error-404">
+  <div class="container">
+    <%= content_tag :h1, t('not_found.title') %>
+    <%= content_tag :p, t('not_found.messsage') %>
+    <%= link_to t('back_to_home'), root_path, class: 'default-btn' %>
+  </div>
+</div>

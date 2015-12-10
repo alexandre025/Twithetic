@@ -41,14 +41,9 @@ fr:
   posts:
     actions:
       create: Tweeter
-      delete: Supprimer le post
-      update: Mettre à jour le post
-      retweet: RT
-      like: "J'aime"
-      unlike: "Je n'aime plus"
-    writted_by: "Par %{user}"
     write_new: "Ecrire un nouveau tweet..."
-    retweeted_from: "Retweeté de"
+
+
   header:
     login: Connexion
     sign_in: Inscription
@@ -92,6 +87,7 @@ fr:
     password_leave_blank: "laissez vide si vous ne souhaitez pas le changer"
     cancel_account: "Je souhaite supprimer mon compte"
     cancel_confirm: "Confirmer la suppression de votre compte ?"
+
   remember_me: "Se souvenir de moi"
   password: "Mot de passe"
   email: "Email"
@@ -106,6 +102,15 @@ fr:
   password_confirm: "Confirmer le mot de passe"
   chars_min: "charactères minimums"
   username: "Nom d'utilisateur"
+  back_to_home: "Retour au site"
+
+  not_found:
+    title: "Il y a comme un os..."
+    messsage: "La page que vous recherchez n'existe pas."
+
+  internal_error:
+    message: "La page que vous recherchez rencontre un problème."
+    title: "Vous êtes tombé sur un os..."
 
   notif:
     notice:
