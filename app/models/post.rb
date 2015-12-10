@@ -46,9 +46,9 @@ class Post < ActiveRecord::Base
     hashtags = self.message.scan(/(#\w+)/).flatten
     hashtags.each do |h|
       tag = h.tr('#', '')
-      stored_hashtag = Hashtag.find_or_create_by(name: tag)
-      stored_hashtag.mention = stored_hashtag.mention + 1
-      stored_hashtag.save
+      Hashtag.find_or_create_by(name: tag) do |hash|
+        hash.mention = hash.mention + 1
+      end
     end
   end
 
