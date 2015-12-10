@@ -13,6 +13,9 @@ class Post < ActiveRecord::Base
 
   has_many :comments, dependent: :destroy
 
+  # Validates
+  validates :message, length: { maximum: 140 }
+
   # Is followable
   acts_as_followable
 
