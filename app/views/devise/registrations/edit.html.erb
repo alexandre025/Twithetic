@@ -38,19 +38,19 @@
 
             <div class="field">
               <div class="form-left">
-                <%= f.label t('firstname') %> :
+                <%= f.label t('firstname') %> * :
               </div>
               <div class="form-right">
-                <%= f.text_field :firstname %>
+                <%= f.text_field :firstname, required: true %>
               </div>
             </div>
 
             <div class="field">
               <div class="form-left">
-                <%= f.label t('lastname') %> :
+                <%= f.label t('lastname') %> * :
               </div>
               <div class="form-right">
-                <%= f.text_field :lastname %>
+                <%= f.text_field :lastname, required: true %>
               </div>
             </div>
 
@@ -90,11 +90,11 @@
 
             <div class="field">
               <div class="form-left">
-                <%= f.label t('profil.current_password') %> :
+                <%= f.label t('profil.current_password') %> * :
                 <br/><span class="legend">(<%= t('profil.need_pwd_to_confirm') %>)</span>
               </div>
               <div class="form-right">
-                <%= f.password_field :current_password, autocomplete: 'off' %>
+                <%= f.password_field :current_password, autocomplete: 'off', required: true %>
               </div>
             </div>
 
