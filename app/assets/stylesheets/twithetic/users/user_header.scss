@@ -45,6 +45,7 @@
       color: $white;
 
       &.user-firstname-lastname {
+        text-transform: capitalize;
         margin-top: 20px;
         font-size: 24px;
       }
@@ -54,6 +55,10 @@
       &.user-bio {
         margin-top: 20px;
         word-break: break-all;
+        
+        a{
+          color: $pink;
+        }
       }
 
     }
