@@ -1,7 +1,32 @@
 <% if user_signed_in? %>
-    <%= form_for [post, Comment.new] do |f| %>
+    <%= form_for [post, Comment.new], html: { class: 'post-comment-form' } do |f| %>
         <%= f.hidden_field :user_id, value: current_user.id %>
-        <%= f.text_field :message %>
-        <%= f.submit :submit %>
+        <span class="comment-count">
+          <%= post.comments.count %>
+          <%= image_tag 'comment_blue.png' %>
+        </span>
+        <%= f.text_field :message, placeholder: t('new_comment_placeholder') %>
     <% end %>
+<% end %>
+<% post.comments.each do |c| %>
+    <div class="single-comment">
+      <%= image_tag c.user.image.attachment.url(:bigger_thumb) %>
+      <div class="comment-infos">
+        <%= link_to user_path(c.user) do %>
+            <span class="comment-user"><%= "#{c.user.firstname} #{c.user.lastname}" %></span>
+            <span class="comment-username"><%= "@#{c.user.username}" %></span>
+        <% end %>
+        <span class="comment-created_at"><%= c.created_at.strftime('%d/%m/%Y') %></span>
+
+        <%= content_tag :div, parse_tweet(c.message), class: 'comment-message' %>
+      </div>
+
+      <% if can? :destroy, c %>
+          <div class="delete-comment">
+            <%= form_for [post, c], method: :delete, data: {confirm: t('confirm_comment_delete')} do %>
+                <%= image_submit_tag 'delete_grey.png' %>
+            <% end %>
+          </div>
+      <% end %>
+    </div>
 <% end %>

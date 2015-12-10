@@ -42,7 +42,7 @@ fr:
     actions:
       create: Tweeter
     write_new: "Ecrire un nouveau tweet..."
-
+    retweeted_from: "Retweeté de"
 
   header:
     login: Connexion
@@ -118,8 +118,14 @@ fr:
       delete_post_success: "Vous avez supprimé votre tweet."
       success_unfollow: "Vous ne suivez plus %{user}"
       success_follow: "Vous suivez désormais %{user}"
+      delete_comment_success: "Vous avez supprimé votre commentaire"
+      add_comment_success: "Vous avez ajouté un commentaire"
     error:
       new_post_error: "Ooops... une erreur est survenue pendant l'ajout de votre tweet !"
       delete_post_unauthorized: "Vous n'avez l'authorisation de supprimer ce tweet !"
+      delete_comment_unauthorized: "Vous n'avez pas l'authorisation de supprimer ce commentaire"
+      add_comment_error: "Ooops... une erreur s'est produite pendant l'ajout de votre commentaire"
   loading: "Chargement..."
   confirm_post_delete: "Vouslez vous vraiment supprimer votre tweet ?"
+  new_comment_placeholder: "Ajouter un commentaire"
+  confirm_comment_delete: "Voulez vous vraiment supprimer votre commentaire ?"

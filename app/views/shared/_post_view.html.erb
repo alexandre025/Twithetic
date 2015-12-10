@@ -48,6 +48,11 @@
 
     <%= render partial: 'shared/retweet_action', locals: {post: post} %>
 
+    <% if user_signed_in? %>
+        <%= link_to post_path(post) do %>
+            <%= image_tag 'comment_grey.png', class: 'post-comment' %>
+        <% end %>
+    <% end %>
   </div>
 
   <% if can? :destroy, post %>
@@ -58,6 +63,6 @@
       </div>
   <% end %>
 
-  <%#= render partial: 'shared/comment_form', locals: {post: post}  %>
+  <%= render partial: 'shared/comment_form', locals: { post: post } if single %>
 
 </div>

@@ -10,7 +10,11 @@
   color: $white;
 
   .container {
-    margin-top: calc(50% - 140px);
+    position: absolute;
+    top: 65%;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
     h1 {
       font-size: 60px;
       margin: 0;
