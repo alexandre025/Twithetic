@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20151204203630) do
 
   create_table "hashtags", force: :cascade do |t|
     t.string   "name",       limit: 255,             null: false
-    t.integer  "mention",    limit: 4,   default: 1, null: false
+    t.integer  "mention",    limit: 4,   default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

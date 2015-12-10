@@ -8,7 +8,7 @@ module PostHelper
 
     hashtags.each do |h|
       tag = h.tr('#', '')
-      stored_hashtag = Hashtag.select(:name).where(name: tag).first
+      stored_hashtag = Hashtag.find_by(name: tag)
       if stored_hashtag.present?
         linked_hashtags << link_to(h, hashtag_path(hashtag: stored_hashtag.name))
       end
