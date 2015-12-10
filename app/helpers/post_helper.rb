@@ -4,18 +4,13 @@ module PostHelper
     hashtags = message.scan(/(#\w+)/).flatten
     return message if hashtags.size == 0
 
-    linked_hashtags = []
-
-    hashtags.each do |h|
-      tag = h.tr('#', '')
+    linked_message = message.gsub(/\B[@#]\S+\b/) do |hash|
+      tag = hash.tr('#', '')
       stored_hashtag = Hashtag.find_by(name: tag)
-      if stored_hashtag.present?
-        linked_hashtags << link_to(h, hashtag_path(hashtag: stored_hashtag.name))
-      end
+      link_to(hash, hashtag_path(hashtag: stored_hashtag.name))
     end
-    message_without_hashtags = message.gsub!(/\B[@#]\S+\b/, '')
 
-    return "#{message_without_hashtags} #{linked_hashtags.join(' ')}".html_safe
+    return linked_message.html_safe
   end
 
 end
