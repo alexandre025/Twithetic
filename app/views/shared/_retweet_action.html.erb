@@ -1,7 +1,7 @@
 <% count = post.try(:parent).try(:count_retweet) || post.count_retweet %>
 <div class="retweet-button">
   <% if user_signed_in? %>
-      <% if current_user == post.user %>
+      <% if current_user == post.user or current_user == post.try(:parent).try(:user) %>
           <% if post.parent %>
               <%= content_tag :span, count, class: 'blue' %>
               <%= image_tag 'retweet_blue.png' %>
@@ -19,8 +19,11 @@
               <%= image_tag 'retweet_blue.png' %>
           <% end %>
       <% end %>
+  <% elsif count > 0 %>
+      <%= content_tag :span, count, class: 'blue' %>
+      <%= image_tag 'retweet_blue.png' %>
   <% else %>
-      <%= content_tag :span, count %>
+      <%= content_tag :span, count, class: 'blue' %>
       <%= image_tag 'retweet_grey.png' %>
   <% end %>
 </div>
