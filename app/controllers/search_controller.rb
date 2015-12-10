@@ -12,8 +12,8 @@ class SearchController < ApplicationController
 
   def hashtag
     @posts = Post.ransack(message_cont: params[:hashtag]).result
-    @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(10)
     @users = select_firsts_user(@posts, 2)
+    @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(10)
   end
 
   private
