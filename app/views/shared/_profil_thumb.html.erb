@@ -5,11 +5,23 @@
       <%= link_to "@#{user.username}", user_path(user), class: 'profil-link' %>
 
       <% if current_user.following?(user) %>
-          <%= link_to t('users.actions.unfollow'), user_follow_path(user), class: 'active unfollow default-btn' %>
-          <%= link_to t('users.actions.follow'), user_follow_path(user), class: 'follow default-btn' %>
+          <%= link_to user_follow_path(user), class: 'active unfollow default-btn' do %>
+              <%= inline_svg 'close.svg' %>
+              <%= t('users.actions.unfollow') %>
+          <% end %>
+          <%= link_to user_follow_path(user), class: 'follow default-btn' do %>
+              <%= inline_svg 'add.svg' %>
+              <%= t('users.actions.follow') %>
+          <% end %>
       <% else %>
-          <%= link_to t('users.actions.unfollow'), user_follow_path(user), class: 'unfollow default-btn' %>
-          <%= link_to t('users.actions.follow'), user_follow_path(user), class: 'active follow default-btn' %>
+          <%= link_to user_follow_path(user), class: 'unfollow default-btn' do %>
+              <%= inline_svg 'close.svg' %>
+              <%= t('users.actions.unfollow') %>
+          <% end %>
+          <%= link_to user_follow_path(user), class: 'active follow default-btn' do %>
+              <%= inline_svg 'add.svg' %>
+              <%= t('users.actions.follow') %>
+          <% end %>
       <% end %>
     </div>
 <% end %>

@@ -13,11 +13,23 @@
         <% if current_user == @object %>
             <a href="<%= edit_user_registration_path %>" class="default-btn edit"><%= inline_svg 'edit_compte.svg' %><%= t('users.actions.edit') %></a>
         <% elsif current_user.following?(@object) %>
-            <%= link_to t('users.actions.unfollow'), user_follow_path(@object.id), class: 'active unfollow default-btn' %>
-            <%= link_to t('users.actions.follow'), user_follow_path(@object.id), class: 'follow default-btn' %>
+            <%= link_to user_follow_path(@object.id), class: 'active unfollow default-btn' do %>
+                <%= inline_svg 'close.svg' %>
+                <%= t('users.actions.unfollow') %>
+            <% end %>
+            <%= link_to user_follow_path(@object.id), class: 'follow default-btn' do %>
+                <%= inline_svg 'add.svg' %>
+                <%= t('users.actions.follow') %>
+            <% end %>
         <% else %>
-            <%= link_to t('users.actions.unfollow'), user_follow_path(@object.id), class: 'unfollow default-btn' %>
-            <%= link_to t('users.actions.follow'), user_follow_path(@object.id), class: 'active follow default-btn' %>
+            <%= link_to user_follow_path(@object.id), class: 'unfollow default-btn' do %>
+                <%= inline_svg 'close.svg' %>
+                <%= t('users.actions.unfollow') %>
+            <% end %>
+            <%= link_to user_follow_path(@object.id), class: 'active follow default-btn' do %>
+                <%= inline_svg 'add.svg' %>
+                <%= t('users.actions.follow') %>
+            <% end %>
         <% end %>
     <% end %>
 
