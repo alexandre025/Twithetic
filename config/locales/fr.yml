@@ -4,6 +4,12 @@ fr:
     users: utilisateurs
     search: recherche
     edit: modifier
+    sign_in: connexion
+    login: connexion
+    sign_up: inscription
+    logout: deconnexion
+    sign_out: deconnexion
+    hashtags: hashtags
 
   activerecord:
     models:

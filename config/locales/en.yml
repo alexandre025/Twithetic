@@ -1,26 +1,137 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  routes:
+    posts: tweets
+    users: utilisateurs
+    search: recherche
+    edit: modifier
+    sign_in: connexion
+    login: connexion
+    sign_up: inscription
+    logout: deconnexion
+    sign_out: deconnexion
+    hashtags: hashtags
+
+  activerecord:
+    models:
+      user:
+        one: utilisateur
+        other: utilisateurs
+    attributes:
+      user:
+        email: Email
+        password: Mot de passe
+        password_confirmation: Confirmer le mot de passe
+        username: "Nom d'utilisateur"
+        firstname: Prénom
+        lastname: Nom
+
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: doit être rempli
+              taken: est déjà pris
+            password:
+              blank: doit être rempli
+            password_confirmation:
+              confirmation: doit être égal au mot de passe
+            username:
+              blank: doit être rempli
+              taken: est déjà pris
+            firstname:
+              blank: doit être rempli
+            lastname:
+              blank: doit être rempli
+
+  posts:
+    actions:
+      create: Tweeter
+    write_new: "Ecrire un nouveau tweet..."
+    retweeted_from: "Retweeté de"
+
+  header:
+    login: Connexion
+    sign_in: Inscription
+    profil: Voir mon profil
+    logout: Se déconnecter
+    edit: Editer mon profil
+  search:
+    placeholder: Rechercher un tweet ou un utilisateur
+    tweets: Voir les tweets
+    users: Voir les utilisateurs
+    actions:
+      search: Rechercher
+    results: "%{count} résultats pour \"%{for}\""
+    no_results:
+      users: Aucun utilisateur ne correspond à votre recherche.
+      tweets: Aucun tweet ne correspond à votre recherche.
+  trend_hashtags: "Trend Hastags"
+  users:
+    login: Connexion
+    register: Inscription
+    actions:
+      edit: "Editer le profil"
+      follow: "S'abonner"
+      unfollow: "Se désabonner"
+    form:
+      edit: "Changer les paramètres de base de votre profil"
+  user:
+    liked: "Favoris"
+    followers_count: "Abonnés"
+    follow_count: "Abonnements"
+    posts: "Tweets"
   profil:
-    need_pwd_to_confirm: "we need your current password to confirm your changes"
-    password_leave_blank: "leave blank if you don't want to change it"
+    banner: "Arrière-plan"
+    image: "Photo de profil"
+    bio: "Biographie courte"
+    actions:
+      update: "Enregistrer les modifications"
+    need_pwd_to_confirm: "nous avons besoins de votre mot de passe actuel pour valider vos modifications"
+    password: "Nouveau mot de passe"
+    current_password: "Mot de passe actuel"
+    password_leave_blank: "laissez vide si vous ne souhaitez pas le changer"
+    cancel_account: "Je souhaite supprimer mon compte"
+    cancel_confirm: "Confirmer la suppression de votre compte ?"
+
+  remember_me: "Se souvenir de moi"
+  password: "Mot de passe"
+  email: "Email"
+  login: "Connexion"
+  password_confirm: "Confirmez le mot de passe"
+  firstname: "Prénom"
+  lastname: "Nom"
+  signup: Inscription
+  forgot_pwd: "Mot de passe oublié ?"
+  didnt_receive_conf: "Didn't receive confirmation instructions?"
+  didnt_receive_unlock: "Didn't receive unlock instructions?"
+  password_confirm: "Confirmer le mot de passe"
+  chars_min: "charactères minimums"
+  username: "Nom d'utilisateur"
+  back_to_home: "Retour au site"
+
+  not_found:
+    title: "Il y a comme un os..."
+    messsage: "La page que vous recherchez n'existe pas."
+
+  internal_error:
+    message: "La page que vous recherchez rencontre un problème."
+    title: "Vous êtes tombé sur un os..."
+
+  notif:
+    notice:
+      new_post_success: "Tweet ajouté avec succès !"
+      delete_post_success: "Vous avez supprimé votre tweet."
+      success_unfollow: "Vous ne suivez plus %{user}"
+      success_follow: "Vous suivez désormais %{user}"
+      delete_comment_success: "Vous avez supprimé votre commentaire"
+      add_comment_success: "Vous avez ajouté un commentaire"
+    error:
+      new_post_error: "Ooops... une erreur est survenue pendant l'ajout de votre tweet !"
+      delete_post_unauthorized: "Vous n'avez l'authorisation de supprimer ce tweet !"
+      delete_comment_unauthorized: "Vous n'avez pas l'authorisation de supprimer ce commentaire"
+      add_comment_error: "Ooops... une erreur s'est produite pendant l'ajout de votre commentaire"
+  loading: "Chargement..."
+  confirm_post_delete: "Vouslez vous vraiment supprimer votre tweet ?"
+  new_comment_placeholder: "Ajouter un commentaire"
+  confirm_comment_delete: "Voulez vous vraiment supprimer votre commentaire ?"
