@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
 
+  include InjectLinks
+
   # Scope
   default_scope { order(created_at: :desc) }
 
@@ -20,8 +22,6 @@ class Post < ActiveRecord::Base
   acts_as_followable
 
   # Methods
-  after_save :parse_hashtags
-
   def retweet(by_user)
     raise Exception, "User can't retweet is own tweet" if by_user.id == self.user.id
     retweet = self.dup
@@ -40,16 +40,6 @@ class Post < ActiveRecord::Base
 
   def is_a_retweet?
     self.parent.present?
-  end
-
-  def parse_hashtags
-    hashtags = self.message.scan(/(#\w+)/).flatten
-    hashtags.each do |h|
-      tag = h.tr('#', '')
-      Hashtag.find_or_create_by(name: tag) do |hash|
-        hash.mention = hash.mention + 1
-      end
-    end
   end
 
 end

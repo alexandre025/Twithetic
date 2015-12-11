@@ -1,5 +1,7 @@
 class Comment < ActiveRecord::Base
 
+  include InjectLinks
+
   # Scope
   default_scope { order(created_at: :desc) }
 
