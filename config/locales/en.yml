@@ -1,137 +1,137 @@
 en:
   routes:
     posts: tweets
-    users: utilisateurs
-    search: recherche
-    edit: modifier
-    sign_in: connexion
-    login: connexion
-    sign_up: inscription
-    logout: deconnexion
-    sign_out: deconnexion
+    users: users
+    search: search
+    edit: edit
+    sign_in: sign_in
+    login: login
+    sign_up: sign_up
+    logout: logout
+    sign_out: sign_out
     hashtags: hashtags
 
   activerecord:
     models:
       user:
-        one: utilisateur
-        other: utilisateurs
+        one: user
+        other: users
     attributes:
       user:
         email: Email
-        password: Mot de passe
-        password_confirmation: Confirmer le mot de passe
-        username: "Nom d'utilisateur"
-        firstname: Prénom
-        lastname: Nom
+        password: Password
+        password_confirmation: Confirm Password
+        username: "Username"
+        firstname: Firstname
+        lastname: Lastname
 
     errors:
       models:
         user:
           attributes:
             email:
-              blank: doit être rempli
-              taken: est déjà pris
+              blank: must be filled
+              taken: is already taken
             password:
-              blank: doit être rempli
+              blank: must be filled
             password_confirmation:
-              confirmation: doit être égal au mot de passe
+              confirmation: must be equal to the password
             username:
-              blank: doit être rempli
-              taken: est déjà pris
+              blank: must be filled
+              taken: is already taken
             firstname:
-              blank: doit être rempli
+              blank: must be filled
             lastname:
-              blank: doit être rempli
+              blank: must be filled
 
   posts:
     actions:
       create: Tweeter
-    write_new: "Ecrire un nouveau tweet..."
-    retweeted_from: "Retweeté de"
+    write_new: "Write a new tweet..."
+    retweeted_from: "Retweeted from"
 
   header:
-    login: Connexion
-    sign_in: Inscription
-    profil: Voir mon profil
-    logout: Se déconnecter
-    edit: Editer mon profil
+    login: Login
+    sign_in: Sign in
+    profil: Profile
+    logout: Log out
+    edit: Edit my profile
   search:
-    placeholder: Rechercher un tweet ou un utilisateur
-    tweets: Voir les tweets
-    users: Voir les utilisateurs
+    placeholder: Search for a tweet or a user
+    tweets: See tweets
+    users: See users
     actions:
-      search: Rechercher
+      search: Search
     results: "%{count} résultats pour \"%{for}\""
     no_results:
-      users: Aucun utilisateur ne correspond à votre recherche.
-      tweets: Aucun tweet ne correspond à votre recherche.
+      users: No user matches with your research.
+      tweets: No tweet matches with your research.
   trend_hashtags: "Trend Hastags"
   users:
-    login: Connexion
-    register: Inscription
+    login: Log in
+    register: Sign up
     actions:
-      edit: "Editer le profil"
-      follow: "S'abonner"
-      unfollow: "Se désabonner"
+      edit: "Edit my profile"
+      follow: "Follow"
+      unfollow: "Unfollow"
     form:
-      edit: "Changer les paramètres de base de votre profil"
+      edit: "Edit basic settings of your profile"
   user:
-    liked: "Favoris"
-    followers_count: "Abonnés"
-    follow_count: "Abonnements"
+    liked: "Favorites"
+    followers_count: "Followers"
+    follow_count: "Followings"
     posts: "Tweets"
   profil:
-    banner: "Arrière-plan"
-    image: "Photo de profil"
-    bio: "Biographie courte"
+    banner: "Background"
+    image: "Profile picture"
+    bio: "Short Biography"
     actions:
-      update: "Enregistrer les modifications"
-    need_pwd_to_confirm: "nous avons besoins de votre mot de passe actuel pour valider vos modifications"
-    password: "Nouveau mot de passe"
-    current_password: "Mot de passe actuel"
-    password_leave_blank: "laissez vide si vous ne souhaitez pas le changer"
-    cancel_account: "Je souhaite supprimer mon compte"
-    cancel_confirm: "Confirmer la suppression de votre compte ?"
+      update: "Save modifications"
+    need_pwd_to_confirm: "We need your current password in order to validate your modifications"
+    password: "New password"
+    current_password: "Current password"
+    password_leave_blank: "Leave empty if you don't want to change it"
+    cancel_account: "I want to delete my account"
+    cancel_confirm: "Confirm the suppression of your acount ?"
 
-  remember_me: "Se souvenir de moi"
-  password: "Mot de passe"
+  remember_me: "Remember me"
+  password: "Password"
   email: "Email"
-  login: "Connexion"
-  password_confirm: "Confirmez le mot de passe"
-  firstname: "Prénom"
-  lastname: "Nom"
-  signup: Inscription
-  forgot_pwd: "Mot de passe oublié ?"
+  login: "Login"
+  password_confirm: "Confirm your password"
+  firstname: "Firstname"
+  lastname: "Lastname"
+  signup: Sign up
+  forgot_pwd: "Password forgotten ?"
   didnt_receive_conf: "Didn't receive confirmation instructions?"
   didnt_receive_unlock: "Didn't receive unlock instructions?"
-  password_confirm: "Confirmer le mot de passe"
-  chars_min: "charactères minimums"
-  username: "Nom d'utilisateur"
-  back_to_home: "Retour au site"
+  password_confirm: "Confirm password"
+  chars_min: "characters minimum"
+  username: "Username"
+  back_to_home: "Go back to the website"
 
   not_found:
-    title: "Il y a comme un os..."
-    messsage: "La page que vous recherchez n'existe pas."
+    title: "There is like a bone..."
+    messsage: "The page that you are looking for does not exist."
 
   internal_error:
-    message: "La page que vous recherchez rencontre un problème."
-    title: "Vous êtes tombé sur un os..."
+    message: "The page that you are looking for has a problem."
+    title: "You have found a bone..."
 
   notif:
     notice:
-      new_post_success: "Tweet ajouté avec succès !"
-      delete_post_success: "Vous avez supprimé votre tweet."
-      success_unfollow: "Vous ne suivez plus %{user}"
-      success_follow: "Vous suivez désormais %{user}"
-      delete_comment_success: "Vous avez supprimé votre commentaire"
-      add_comment_success: "Vous avez ajouté un commentaire"
+      new_post_success: "Tweet added successfully!"
+      delete_post_success: "You have deleted your tweet."
+      success_unfollow: "You do not follow %{user} anymore."
+      success_follow: "You now follow %{user}."
+      delete_comment_success: "You have deleted your comment."
+      add_comment_success: "You have added a comment"
     error:
-      new_post_error: "Ooops... une erreur est survenue pendant l'ajout de votre tweet !"
-      delete_post_unauthorized: "Vous n'avez l'authorisation de supprimer ce tweet !"
-      delete_comment_unauthorized: "Vous n'avez pas l'authorisation de supprimer ce commentaire"
-      add_comment_error: "Ooops... une erreur s'est produite pendant l'ajout de votre commentaire"
-  loading: "Chargement..."
-  confirm_post_delete: "Vouslez vous vraiment supprimer votre tweet ?"
-  new_comment_placeholder: "Ajouter un commentaire"
-  confirm_comment_delete: "Voulez vous vraiment supprimer votre commentaire ?"
+      new_post_error: "Ooops... an error has occured during the addition of your tweet !"
+      delete_post_unauthorized: "You have not the rights to delete this tweet !"
+      delete_comment_unauthorized: "You have not the rights to delete this comment"
+      add_comment_error: "Ooops... an error occured durint the addition of your comment"
+  loading: "Loading..."
+  confirm_post_delete: "Do you really want to delete your tweet ?"
+  new_comment_placeholder: "Add a comment"
+  confirm_comment_delete: "Do you really want to delete your comment ?"
