@@ -16,7 +16,7 @@
             <span class="comment-user"><%= "#{c.user.firstname} #{c.user.lastname}" %></span>
             <span class="comment-username"><%= "@#{c.user.username}" %></span>
         <% end %>
-        <span class="comment-created_at"><%= c.created_at.strftime('%d/%m/%Y') %></span>
+        <span class="comment-created_at"><%= to_date(c.created_at,current_locale) %></span>
 
         <%= content_tag :div, parse_tweet(c.message), class: 'comment-message' %>
       </div>

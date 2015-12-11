@@ -8,6 +8,13 @@ header {
   background-color: $blue;
   z-index: 10;
 
+  .locale-selector{
+    display: inline-block;
+    position: relative;
+    top: 4px;
+    left: 15px;
+  }
+
   a {
     &.title {
       display: inline-block;
@@ -55,8 +62,11 @@ header {
         border-radius: 10px;
         top: 50px;
         right: 10px;
-        display: none;
+        height: 0px;
+        z-index: -1000;
+        opacity: 0;
         background-color: $background_light;
+        transition: all 0.5s ease;
         a {
           color: $black;
           height: 35px;
@@ -70,7 +80,9 @@ header {
       }
       &:hover {
         .popup-content {
-          display: block;
+          height: 70px;
+          z-index: 11;
+          opacity: 1;
         }
       }
     }

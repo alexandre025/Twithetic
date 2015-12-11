@@ -2,7 +2,13 @@
   <%= link_to 'bark', posts_path, class: 'title' %>
 
   <%= render partial: 'shared/search_form' %>
-
+  <div class="locale-selector">
+    <% if current_locale == :fr %>
+      <%= link_to image_tag('fr.png'), posts_en_path %>
+    <% else %>
+        <%= link_to image_tag('en.png'), posts_fr_path %>
+    <% end %>
+  </div>
   <nav>
     <% if user_signed_in? %>
       <div class="popup">

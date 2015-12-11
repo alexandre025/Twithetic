@@ -66,7 +66,7 @@ fr:
     no_results:
       users: Aucun utilisateur ne correspond à votre recherche.
       tweets: Aucun tweet ne correspond à votre recherche.
-  trend_hashtags: "Trend Hastags"
+  trend_hashtags: "Tendances du moment"
   users:
     login: Connexion
     register: Inscription

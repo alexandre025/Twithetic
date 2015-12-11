@@ -24,7 +24,7 @@
             <span class="post-user"><%= "#{post.user.firstname} #{post.user.lastname}" %></span>
             <span class="post-username"><%= "@#{post.user.username}" %></span>
         <% end %>
-        <span class="post-created_at"><%= post.created_at.strftime('%d/%m/%Y') %></span>
+        <span class="post-created_at"><%= to_date(post.created_at,current_locale) %></span>
         <% if post.parent %>
             <div class="post-retweeted"><%= t 'posts.retweeted_from' %> <%= link_to "@#{post.parent.user.username}", user_path(post.parent.user) %></div>
         <% end %>
