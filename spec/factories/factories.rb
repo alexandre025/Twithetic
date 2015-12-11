@@ -25,4 +25,8 @@ FactoryGirl.define do
     post
   end
 
+  factory :hashtag do
+    name { Faker::Lorem.word }
+  end
+
 end

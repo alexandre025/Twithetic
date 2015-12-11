@@ -66,7 +66,9 @@ RSpec.configure do |config|
     require f
   end
 
-  # Devise support for Rspec controller test
+
+  # Extra project RSpec configuration
+  config.include Rails.application.routes.url_helpers
   config.include Devise::TestHelpers, type: :controller
   config.extend ControllerMacros, type: :controller
 
