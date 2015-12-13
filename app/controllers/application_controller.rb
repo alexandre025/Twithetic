@@ -3,13 +3,21 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  before_action :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   before_action do
     @trend_hashtags = Hashtag.order(mention: :asc).first(10)
   end
 
-  private
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
+
+  def self.default_url_options(options={})
+    options.merge({locale: I18n.locale})
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << [:username, :firstname, :lastname]
     devise_parameter_sanitizer.for(:account_update) << [:firstname, :lastname, :bio, image_attributes: [:attachment, :id], banner_attributes: [:attachment, :id]]
