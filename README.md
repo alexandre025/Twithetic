@@ -1,8 +1,10 @@
-# Twithetic
+# Bark - An Amazing Social Network
 
 [![Build Status](https://travis-ci.com/alexandre025/Twithetic.svg?token=ZjFQNPV9JWmqpBcvXRTc&branch=master)](https://travis-ci.com/alexandre025/Twithetic)
 
 ## About
+
+Bark is the first social network which doesn't sell his members informations. 
 
 ## How to instal
 
@@ -29,3 +31,8 @@ rake assets:precompile
 
 We use passenger in production mode, you can redefined it in the Gemfile.
 Please refer to passenger documentation for more informations.
+
+
+## Demo
+
+Demo runs here : http://rails.alexandre-ferraille.fr
