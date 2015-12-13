@@ -10,7 +10,7 @@ Bark is the first social network which doesn't sell his members informations.
 
 First, clone the project
 ````
-git clone https://github.com/alexandre025/Twithetic.git
+git clone https://github.com/alexandre025/Bark.git
 ````
 
 The project use many environments variable in config/secrets.yml and config/database.yml
