@@ -1,6 +1,6 @@
 # Bark - An Amazing Social Network
 
-[![Build Status](https://travis-ci.com/alexandre025/Twithetic.svg?token=ZjFQNPV9JWmqpBcvXRTc&branch=master)](https://travis-ci.com/alexandre025/Twithetic)
+[![CircleCI](https://circleci.com/gh/alexandre025/Twithetic.svg?style=svg)](https://circleci.com/gh/alexandre025/Twithetic)
 
 ## About
 
